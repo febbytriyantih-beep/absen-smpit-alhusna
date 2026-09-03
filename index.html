@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="id">
 <head>
 <meta charset="utf-8">
@@ -7,6 +8,7 @@
 <title>Absensi Digital SMPIT Al-Husna</title>
 
 <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <style>
@@ -243,7 +245,15 @@ td{
 .qr-box{
   display:flex;
   justify-content:center;
+  align-items:center;
+  min-height:180px;
   margin:8px 0
+}
+
+.qr-box img,
+.qr-box canvas{
+  max-width:180px;
+  max-height:180px
 }
 
 .qr-name{
@@ -396,6 +406,14 @@ td{
   }
 }
 
+@media(max-width:520px){
+
+  .qr-grid{
+    grid-template-columns:1fr
+  }
+
+}
+
 @media print{
 
   body{
@@ -445,7 +463,8 @@ td{
     padding:10px
   }
 
-  .qr-card .qr-box img{
+  .qr-card .qr-box img,
+  .qr-card .qr-box canvas{
     width:150px!important;
     height:150px!important
   }
@@ -463,6 +482,7 @@ td{
   }
 }
 </style>
+
 </head>
 
 <body>
@@ -470,8 +490,8 @@ td{
 <header>
 
 <img class="logo"
-     src="logo.jpg"
-     alt="Logo SMPIT Al-Husna">
+  src="logo.jpg"
+  alt="Logo SMPIT Al-Husna">
 
 <div style="flex:1">
 
@@ -491,8 +511,6 @@ Memuat waktu...
 
 <div class="wrap">
 
-<!-- LOGIN -->
-
 <section id="login"
          class="card"
          style="max-width:460px;margin:28px auto">
@@ -502,15 +520,15 @@ Memuat waktu...
 <label>Username</label>
 
 <input id="username"
-       value="admin"
-       autocomplete="username">
+    value="admin"
+    autocomplete="username">
 
 <label>Password</label>
 
 <input id="password"
-       type="password"
-       value="admin123"
-       autocomplete="current-password">
+    type="password"
+    value="admin123"
+    autocomplete="current-password">
 
 <button onclick="loginUser()">
 Masuk
@@ -520,18 +538,13 @@ Masuk
 
 </section>
 
-
 <section id="app" class="hidden">
-
-
-<!-- NAVIGATION -->
 
 <div class="nav">
 
 <button class="active"
-        onclick="showTab('scan',this)">
-📷 Scan QR
-</button>
+     onclick="showTab('scan',this)">
+📷 Scan QR </button>
 
 <button onclick="showTab('dashboard',this)">
 📊 Dashboard
@@ -554,12 +567,10 @@ Masuk
 </button>
 
 <button class="alt"
-        onclick="logout()">
-Keluar
-</button>
+     onclick="logout()">
+Keluar </button>
 
 </div>
-
 
 <!-- SCAN -->
 
@@ -578,16 +589,16 @@ Pilih jenis pengguna dan jenis absensi sebelum melakukan scan.
 <div class="type-box">
 
 <button id="typeSiswa"
-        class="type-btn active"
-        onclick="setScanType('SISWA')">
+     class="type-btn active"
+     onclick="setScanType('SISWA')">
 
 👨‍🎓 SISWA
 
 </button>
 
 <button id="typeGuru"
-        class="type-btn"
-        onclick="setScanType('GURU')">
+     class="type-btn"
+     onclick="setScanType('GURU')">
 
 👩‍🏫 GURU / TENDIK
 
@@ -595,27 +606,25 @@ Pilih jenis pengguna dan jenis absensi sebelum melakukan scan.
 
 </div>
 
-
 <div class="mode-box">
 
 <button id="modeMasuk"
-        class="mode-btn active"
-        onclick="setMode('Masuk')">
+     class="mode-btn active"
+     onclick="setMode('Masuk')">
 
 🟢 ABSEN MASUK
 
 </button>
 
 <button id="modePulang"
-        class="mode-btn"
-        onclick="setMode('Pulang')">
+     class="mode-btn"
+     onclick="setMode('Pulang')">
 
 🔵 ABSEN PULANG
 
 </button>
 
 </div>
-
 
 <div id="aturanInfo"
      class="result">
@@ -625,18 +634,14 @@ Pilih jenis pengguna dan jenis absensi sebelum melakukan scan.
 Siswa masuk:
 lebih dari <b>07.00</b> = <b>TERLAMBAT</b>.<br>
 
-Siswa pulang:
-<b>tanpa batasan waktu</b>.<br>
+Siswa pulang: <b>tanpa batasan waktu</b>.<br>
 
 Guru/Tendik:
-masuk dan pulang
-<b>tanpa batasan waktu</b>.
+masuk dan pulang <b>tanpa batasan waktu</b>.
 
 </div>
 
-
 <div id="reader"></div>
-
 
 <div style="
 display:flex;
@@ -649,12 +654,10 @@ margin-top:12px">
 </button>
 
 <button class="alt"
-        onclick="stopScanner()">
-⛔ Matikan Kamera
-</button>
+     onclick="stopScanner()">
+⛔ Matikan Kamera </button>
 
 </div>
-
 
 <div id="scanResult"
      class="result">
@@ -665,9 +668,6 @@ Klik “Mulai Kamera”, lalu izinkan akses kamera.
 
 </div>
 
-
-<!-- INPUT MANUAL -->
-
 <div class="card">
 
 <h2>⌨️ Input Manual</h2>
@@ -677,7 +677,7 @@ Jika kamera tidak tersedia, masukkan QR ID atau NIS/NIP secara manual.
 </p>
 
 <input id="manualQr"
-       placeholder="Contoh QR ID">
+    placeholder="Contoh QR ID">
 
 <button onclick="manualScan()">
 Catat Absensi
@@ -690,7 +690,6 @@ Catat Absensi
 </div>
 
 </div>
-
 
 <!-- DASHBOARD -->
 
@@ -716,7 +715,6 @@ Total Siswa
 
 </div>
 
-
 <div class="stat">
 
 <div class="num"
@@ -730,7 +728,6 @@ Sudah Hadir
 
 </div>
 
-
 <div class="stat">
 
 <div class="num"
@@ -743,7 +740,6 @@ Belum Hadir
 </div>
 
 </div>
-
 
 <div class="stat">
 
@@ -760,28 +756,22 @@ Izin / Sakit / Alpa
 
 </div>
 
-
 <div id="dashboardInfo"
      class="result">
 
-Aturan siswa masuk:
-<b>07.00</b>.
+Aturan siswa masuk: <b>07.00</b>.
 
-Lewat 07.00:
-<b>TERLAMBAT</b>.
+Lewat 07.00: <b>TERLAMBAT</b>.
 
-Siswa pulang:
-<b>tanpa batasan waktu</b>.
+Siswa pulang: <b>tanpa batasan waktu</b>.
 
-Guru:
-<b>tanpa batasan waktu</b>.
+Guru: <b>tanpa batasan waktu</b>.
 
 </div>
 
 </div>
 
 </div>
-
 
 <!-- REKAP -->
 
@@ -799,10 +789,9 @@ Guru:
 <label>Tanggal</label>
 
 <input type="date"
-       id="tanggal">
+    id="tanggal">
 
 </div>
-
 
 <div>
 
@@ -820,11 +809,9 @@ Semua Kelas
 
 </div>
 
-
 <button onclick="loadRekap()">
 Tampilkan Rekap
 </button>
-
 
 <div class="table-wrap"
      style="margin-top:15px">
@@ -846,9 +833,7 @@ Tampilkan Rekap
 
 </thead>
 
-<tbody id="rekapBody">
-
-</tbody>
+<tbody id="rekapBody"></tbody>
 
 </table>
 
@@ -857,7 +842,6 @@ Tampilkan Rekap
 </div>
 
 </div>
-
 
 <!-- SISWA -->
 
@@ -877,22 +861,22 @@ Data siswa akan disimpan melalui Google Apps Script.
 <label>NIS</label>
 
 <input id="newNis"
-       placeholder="Contoh: 25001">
+    placeholder="Contoh: 25001">
 
 <label>NISN</label>
 
 <input id="newNisn"
-       placeholder="NISN">
+    placeholder="NISN">
 
 <label>Nama Lengkap</label>
 
 <input id="newNama"
-       placeholder="Nama siswa">
+    placeholder="Nama siswa">
 
 <label>Kelas</label>
 
 <input id="newKelas"
-       placeholder="VII Khalid Bin Walid">
+    placeholder="VII Khalid Bin Walid">
 
 <label>JK</label>
 
@@ -915,7 +899,7 @@ Perempuan
 <label>QR ID</label>
 
 <input id="newQr"
-       placeholder="Otomatis dari NIS">
+    placeholder="Otomatis dari NIS">
 
 <div style="
 display:flex;
@@ -927,16 +911,14 @@ flex-wrap:wrap">
 </button>
 
 <button class="alt"
-        onclick="clearStudentForm()">
-Bersihkan
-</button>
+     onclick="clearStudentForm()">
+Bersihkan </button>
 
 </div>
 
 <div id="studentMsg"></div>
 
 </div>
-
 
 <div class="card">
 
@@ -959,9 +941,7 @@ Bersihkan
 
 </thead>
 
-<tbody id="studentBody">
-
-</tbody>
+<tbody id="studentBody"></tbody>
 
 </table>
 
@@ -972,7 +952,6 @@ Bersihkan
 </div>
 
 </div>
-
 
 <!-- GURU -->
 
@@ -994,27 +973,27 @@ QR Guru dibuat dengan format:
 <label>NIP / ID Pegawai</label>
 
 <input id="newGuruNip"
-       placeholder="Contoh: 198501012010011001">
+    placeholder="Contoh: 198501012010011001">
 
 <label>Nama Lengkap</label>
 
 <input id="newGuruNama"
-       placeholder="Nama guru/tendik">
+    placeholder="Nama guru/tendik">
 
 <label>Jabatan</label>
 
 <input id="newGuruJabatan"
-       placeholder="Guru Matematika / TU">
+    placeholder="Guru Matematika / TU">
 
 <label>Mapel</label>
 
 <input id="newGuruMapel"
-       placeholder="Matematika">
+    placeholder="Matematika">
 
 <label>QR ID</label>
 
 <input id="newGuruQr"
-       placeholder="Otomatis dari NIP">
+    placeholder="Otomatis dari NIP">
 
 <div style="
 display:flex;
@@ -1026,16 +1005,14 @@ flex-wrap:wrap">
 </button>
 
 <button class="alt"
-        onclick="clearGuruForm()">
-Bersihkan
-</button>
+     onclick="clearGuruForm()">
+Bersihkan </button>
 
 </div>
 
 <div id="guruMsg"></div>
 
 </div>
-
 
 <div class="card">
 
@@ -1059,9 +1036,7 @@ Bersihkan
 
 </thead>
 
-<tbody id="guruBody">
-
-</tbody>
+<tbody id="guruBody"></tbody>
 
 </table>
 
@@ -1070,7 +1045,6 @@ Bersihkan
 </div>
 
 </div>
-
 
 <div class="card">
 
@@ -1082,31 +1056,33 @@ gap:8px;
 flex-wrap:wrap">
 
 <button onclick="generateGuruQR()">
-Buat QR Guru
+🔄 Buat / Refresh QR Guru
 </button>
 
 <button class="warn"
-        onclick="window.print()">
-🖨️ Cetak QR Guru
-</button>
+     onclick="window.print()">
+🖨️ Cetak QR Guru </button>
 
 </div>
 
 <div id="guruQrInfo"
      class="result">
+
+Memuat data QR Guru...
+
 </div>
 
 <div id="guruQrGrid"
      class="qr-grid"
      style="margin-top:15px">
-</div>
 
 </div>
 
 </div>
 
+</div>
 
-<!-- CETAK QR -->
+<!-- CETAK QR SISWA -->
 
 <div id="tab-qr"
      class="hidden">
@@ -1145,9 +1121,8 @@ Buat QR
 </button>
 
 <button class="warn"
-        onclick="window.print()">
-🖨️ Cetak Semua
-</button>
+     onclick="window.print()">
+🖨️ Cetak Semua </button>
 
 </div>
 
@@ -1155,10 +1130,10 @@ Buat QR
 
 <div id="qrInfo"
      class="result">
-</div>
 
 </div>
 
+</div>
 
 <div class="print-head">
 
@@ -1171,7 +1146,6 @@ Tahun Pelajaran 2026/2027
 </p>
 
 </div>
-
 
 <div class="card">
 
@@ -1188,22 +1162,21 @@ Tahun Pelajaran 2026/2027
 
 </div>
 
-
 <script>
 
 /* =====================================================
-   KONFIGURASI API
+   KONFIGURASI
 ===================================================== */
 
 const API =
 'https://script.google.com/macros/s/AKfycbxRIeOUjX7z3R9tjosYm8oJQaVbH1g3FmzLBBz08pVqIGBV_CUtNl7sXlcsVe-BKRN4mA/exec';
-
 
 let scanner = null;
 let allStudents = [];
 let allGuru = [];
 let scanType = 'SISWA';
 let scanMode = 'Masuk';
+let guruLoading = false;
 
 
 /* =====================================================
@@ -1231,15 +1204,25 @@ function jsonp(params){
         callback:cb
       });
 
-    window[cb] =
-      data => {
+    let finished=false;
 
-        cleanup();
-        resolve(data);
+    window[cb] = data => {
 
-      };
+      if(finished) return;
+
+      finished=true;
+
+      cleanup();
+
+      resolve(data);
+
+    };
 
     s.onerror = () => {
+
+      if(finished) return;
+
+      finished=true;
 
       cleanup();
 
@@ -1258,24 +1241,22 @@ function jsonp(params){
 
     document.body.appendChild(s);
 
-
     const timer =
       setTimeout(()=>{
 
-        if(window[cb]){
+        if(finished) return;
 
-          cleanup();
+        finished=true;
 
-          reject(
-            new Error(
-              'Koneksi timeout.'
-            )
-          );
+        cleanup();
 
-        }
+        reject(
+          new Error(
+            'Koneksi timeout.'
+          )
+        );
 
       },15000);
-
 
     function cleanup(){
 
@@ -1299,8 +1280,7 @@ function jsonp(params){
 
 function updateClock(){
 
-  const d =
-    new Date();
+  const d = new Date();
 
   const tanggal =
     d.toLocaleDateString(
@@ -1318,11 +1298,17 @@ function updateClock(){
       'id-ID'
     );
 
-  document.getElementById('clock')
-    .textContent =
+  const el =
+    document.getElementById('clock');
+
+  if(el){
+
+    el.textContent =
       tanggal +
       ' • ' +
       jam;
+
+  }
 
 }
 
@@ -1337,9 +1323,7 @@ updateClock();
 async function loginUser(){
 
   const msg =
-    document.getElementById(
-      'loginMsg'
-    );
+    document.getElementById('loginMsg');
 
   msg.innerHTML =
     '<div class="result">Memeriksa login...</div>';
@@ -1352,17 +1336,14 @@ async function loginUser(){
         action:'login',
 
         username:
-          document.getElementById(
-            'username'
-          ).value.trim(),
+          document.getElementById('username')
+            .value.trim(),
 
         password:
-          document.getElementById(
-            'password'
-          ).value
+          document.getElementById('password')
+            .value
 
       });
-
 
     if(!r.ok){
 
@@ -1374,7 +1355,6 @@ async function loginUser(){
       return;
 
     }
-
 
     sessionStorage.setItem(
       'absenLogin',
@@ -1391,16 +1371,11 @@ async function loginUser(){
       r.role || ''
     );
 
+    document.getElementById('login')
+      .classList.add('hidden');
 
-    document.getElementById(
-      'login'
-    ).classList.add('hidden');
-
-
-    document.getElementById(
-      'app'
-    ).classList.remove('hidden');
-
+    document.getElementById('app')
+      .classList.remove('hidden');
 
     setToday();
 
@@ -1427,7 +1402,10 @@ async function loginUser(){
 
 function logout(){
 
+  stopScanner();
+
   sessionStorage.clear();
+
   location.reload();
 
 }
@@ -1448,53 +1426,51 @@ function showTab(name,btn){
     'qr'
   ].forEach(x=>{
 
-    document
-      .getElementById(
+    const tab =
+      document.getElementById(
         'tab-'+x
-      )
-      .classList.toggle(
+      );
+
+    if(tab){
+
+      tab.classList.toggle(
         'hidden',
         x!==name
       );
 
+    }
+
   });
 
-
   document
-    .querySelectorAll(
-      '.nav button'
-    )
+    .querySelectorAll('.nav button')
     .forEach(
       b =>
-        b.classList.remove(
-          'active'
-        )
+        b.classList.remove('active')
     );
-
 
   if(btn)
     btn.classList.add('active');
 
-
   if(name==='dashboard')
     loadDashboard();
-
 
   if(name==='rekap')
     loadRekap();
 
-
   if(name==='siswa')
     loadStudents();
 
+  /*
+    PENTING:
+    Jangan memanggil generateGuruQR()
+    sebelum guru_list selesai.
+    loadGuru() sekarang sendiri yang
+    membuat QR setelah data tersedia.
+  */
 
-  if(name==='guru'){
-
+  if(name==='guru')
     loadGuru();
-    generateGuruQR();
-
-  }
-
 
   if(name==='qr'){
 
@@ -1514,8 +1490,7 @@ function showTab(name,btn){
 
 function setToday(){
 
-  const d =
-    new Date();
+  const d = new Date();
 
   const local =
     new Date(
@@ -1525,9 +1500,11 @@ function setToday(){
     .toISOString()
     .slice(0,10);
 
-  document.getElementById(
-    'tanggal'
-  ).value = local;
+  const tanggal =
+    document.getElementById('tanggal');
+
+  if(tanggal)
+    tanggal.value = local;
 
 }
 
@@ -1540,19 +1517,13 @@ function setScanType(type){
 
   scanType = type;
 
-  document
-    .getElementById(
-      'typeSiswa'
-    )
+  document.getElementById('typeSiswa')
     .classList.toggle(
       'active',
       type==='SISWA'
     );
 
-  document
-    .getElementById(
-      'typeGuru'
-    )
+  document.getElementById('typeGuru')
     .classList.toggle(
       'active',
       type==='GURU'
@@ -1571,19 +1542,13 @@ function setMode(mode){
 
   scanMode = mode;
 
-  document
-    .getElementById(
-      'modeMasuk'
-    )
+  document.getElementById('modeMasuk')
     .classList.toggle(
       'active',
       mode==='Masuk'
     );
 
-  document
-    .getElementById(
-      'modePulang'
-    )
+  document.getElementById('modePulang')
     .classList.toggle(
       'active',
       mode==='Pulang'
@@ -1601,10 +1566,9 @@ function setMode(mode){
 function updateRuleText(){
 
   const el =
-    document.getElementById(
-      'aturanInfo'
-    );
+    document.getElementById('aturanInfo');
 
+  if(!el) return;
 
   if(scanType==='SISWA'){
 
@@ -1647,12 +1611,8 @@ async function startScanner(){
   if(scanner)
     return;
 
-
   scanner =
-    new Html5Qrcode(
-      'reader'
-    );
-
+    new Html5Qrcode('reader');
 
   const config = {
 
@@ -1667,7 +1627,6 @@ async function startScanner(){
 
   };
 
-
   const success =
     async text => {
 
@@ -1681,14 +1640,13 @@ async function startScanner(){
 
     };
 
-
   try{
 
     await scanner.start(
       {
         facingMode:{
           exact:'environment'
-        },
+        }
       },
       config,
       success,
@@ -1777,7 +1735,6 @@ async function recordAttendance(
     String(qr || '')
       .trim();
 
-
   if(!qr){
 
     showResult(
@@ -1790,12 +1747,8 @@ async function recordAttendance(
 
   }
 
-
   const box =
-    document.getElementById(
-      target
-    );
-
+    document.getElementById(target);
 
   box.className =
     'result';
@@ -1803,11 +1756,9 @@ async function recordAttendance(
   box.textContent =
     'Menyimpan absensi...';
 
-
   try{
 
     let r;
-
 
     /* ================= SISWA ================= */
 
@@ -1826,7 +1777,6 @@ async function recordAttendance(
 
         });
 
-
       if(!r.ok){
 
         showResult(
@@ -1840,28 +1790,10 @@ async function recordAttendance(
 
       }
 
-
-      /*
-       * PERUBAHAN UTAMA:
-       *
-       * Status terlambat ditentukan dari
-       * response Code.gs.
-       *
-       * Jika r.terlambat === true:
-       * TERLAMBAT lebih dari 07.00
-       *
-       * Jika false:
-       * Tepat waktu sampai 07.00
-       */
-
       const late =
-        r.terlambat === true ||
-        String(r.terlambat)
-          .toLowerCase() === 'true';
-
+        r.terlambat === true;
 
       let info = '';
-
 
       if(scanMode==='Masuk'){
 
@@ -1892,16 +1824,14 @@ async function recordAttendance(
 
       }
 
-
       box.className =
         'result ok';
-
 
       box.innerHTML =
         '<b>' +
         escapeHtml(
           r.message ||
-          'Absensi berhasil disimpan.'
+          'Absensi berhasil'
         ) +
         '</b><br>' +
 
@@ -1923,9 +1853,7 @@ async function recordAttendance(
 
         '<br>Absensi: <b>' +
 
-        escapeHtml(
-          scanMode
-        ) +
+        escapeHtml(scanMode) +
 
         '</b>' +
 
@@ -1939,11 +1867,9 @@ async function recordAttendance(
 
         info;
 
-
       loadDashboard();
 
     }
-
 
     /* ================= GURU ================= */
 
@@ -1962,7 +1888,6 @@ async function recordAttendance(
 
         });
 
-
       if(!r.ok){
 
         showResult(
@@ -1976,10 +1901,8 @@ async function recordAttendance(
 
       }
 
-
       box.className =
         'result ok';
-
 
       box.innerHTML =
         '<b>' +
@@ -2007,9 +1930,7 @@ async function recordAttendance(
 
         '<br>Absensi: <b>' +
 
-        escapeHtml(
-          scanMode
-        ) +
+        escapeHtml(scanMode) +
 
         '</b>' +
 
@@ -2053,7 +1974,6 @@ function manualScan(){
       'manualQr'
     ).value.trim();
 
-
   if(!qr){
 
     document.getElementById(
@@ -2066,7 +1986,6 @@ function manualScan(){
     return;
 
   }
-
 
   recordAttendance(
     qr,
@@ -2088,18 +2007,14 @@ function showResult(
 ){
 
   const box =
-    document.getElementById(
-      target
-    );
+    document.getElementById(target);
 
   box.className =
     'result ' +
     (ok?'ok':'bad');
 
   box.innerHTML =
-    escapeHtml(
-      message
-    );
+    escapeHtml(message);
 
 }
 
@@ -2117,32 +2032,23 @@ async function loadDashboard(){
         action:'dashboard'
       });
 
-
     if(!r.ok)
       return;
 
-
-    document.getElementById(
-      'total'
-    ).textContent =
+    document.getElementById('total')
+      .textContent =
       r.total || 0;
 
-
-    document.getElementById(
-      'hadir'
-    ).textContent =
+    document.getElementById('hadir')
+      .textContent =
       r.counts?.Hadir || 0;
 
-
-    document.getElementById(
-      'belum'
-    ).textContent =
+    document.getElementById('belum')
+      .textContent =
       r.belum || 0;
 
-
-    document.getElementById(
-      'izin'
-    ).textContent =
+    document.getElementById('izin')
+      .textContent =
       (r.counts?.Izin || 0) +
       (r.counts?.Sakit || 0) +
       (r.counts?.Alpa || 0);
@@ -2166,10 +2072,20 @@ async function loadStudents(){
         action:'all_siswa'
       });
 
+    if(!r || !r.ok){
+
+      allStudents = r?.data || [];
+
+      renderStudents();
+
+      return;
+
+    }
 
     allStudents =
-      r.data || [];
-
+      Array.isArray(r.data)
+      ? r.data
+      : [];
 
     fillClassSelects();
 
@@ -2180,7 +2096,10 @@ async function loadStudents(){
   }
   catch(e){
 
-    console.error(e);
+    console.error(
+      'loadStudents:',
+      e
+    );
 
   }
 
@@ -2198,6 +2117,7 @@ function renderStudents(){
       'studentBody'
     );
 
+  if(!body) return;
 
   if(!allStudents.length){
 
@@ -2211,7 +2131,6 @@ function renderStudents(){
     return;
 
   }
-
 
   body.innerHTML =
     allStudents.map(s=>
@@ -2257,7 +2176,6 @@ function fillClassSelects(){
     ]
     .sort();
 
-
   const html =
     '<option value="">Semua Kelas</option>' +
 
@@ -2271,17 +2189,17 @@ function fillClassSelects(){
 
     ).join('');
 
+  const kelas =
+    document.getElementById('kelas');
 
-  document.getElementById(
-    'kelas'
-  ).innerHTML =
-    html;
+  const qrKelas =
+    document.getElementById('qrKelas');
 
+  if(kelas)
+    kelas.innerHTML = html;
 
-  document.getElementById(
-    'qrKelas'
-  ).innerHTML =
-    html;
+  if(qrKelas)
+    qrKelas.innerHTML = html;
 
 }
 
@@ -2295,37 +2213,30 @@ async function saveStudent(){
   const data = {
 
     nis:
-      document.getElementById(
-        'newNis'
-      ).value.trim(),
+      document.getElementById('newNis')
+        .value.trim(),
 
     nisn:
-      document.getElementById(
-        'newNisn'
-      ).value.trim(),
+      document.getElementById('newNisn')
+        .value.trim(),
 
     nama:
-      document.getElementById(
-        'newNama'
-      ).value.trim(),
+      document.getElementById('newNama')
+        .value.trim(),
 
     kelas:
-      document.getElementById(
-        'newKelas'
-      ).value.trim(),
+      document.getElementById('newKelas')
+        .value.trim(),
 
     jk:
-      document.getElementById(
-        'newJk'
-      ).value,
+      document.getElementById('newJk')
+        .value,
 
     qr:
-      document.getElementById(
-        'newQr'
-      ).value.trim()
+      document.getElementById('newQr')
+        .value.trim()
 
   };
-
 
   if(
     !data.nis ||
@@ -2344,7 +2255,6 @@ async function saveStudent(){
 
   }
 
-
   if(!data.qr){
 
     data.qr =
@@ -2352,7 +2262,6 @@ async function saveStudent(){
       data.nis;
 
   }
-
 
   try{
 
@@ -2384,7 +2293,6 @@ async function saveStudent(){
           ).value || ''
 
       });
-
 
     if(r.ok){
 
@@ -2424,12 +2332,11 @@ async function saveStudent(){
       'studentMsg'
     ).innerHTML =
       '<div class="result bad">' +
-      'Fitur simpan siswa belum tersedia pada Code.gs.' +
+      'Gagal menyimpan siswa.' +
       '<br><small>' +
-      escapeHtml(
-        e.message
-      ) +
-      '</small></div>';
+      escapeHtml(e.message) +
+      '</small>' +
+      '</div>';
 
   }
 
@@ -2444,13 +2351,23 @@ function clearStudentForm(
   clearMsg=true
 ){
 
-  document.getElementById('newNis').value='';
-  document.getElementById('newNisn').value='';
-  document.getElementById('newNama').value='';
-  document.getElementById('newKelas').value='';
-  document.getElementById('newJk').value='';
-  document.getElementById('newQr').value='';
+  document.getElementById('newNis')
+    .value='';
 
+  document.getElementById('newNisn')
+    .value='';
+
+  document.getElementById('newNama')
+    .value='';
+
+  document.getElementById('newKelas')
+    .value='';
+
+  document.getElementById('newJk')
+    .value='';
+
+  document.getElementById('newQr')
+    .value='';
 
   if(clearMsg){
 
@@ -2469,11 +2386,17 @@ function clearStudentForm(
 
 function generateQR(){
 
-  const filter =
-    document.getElementById(
-      'qrKelas'
-    ).value;
+  const filterEl =
+    document.getElementById('qrKelas');
 
+  const grid =
+    document.getElementById('qrGrid');
+
+  if(!filterEl || !grid)
+    return;
+
+  const filter =
+    filterEl.value;
 
   const list =
     allStudents.filter(
@@ -2482,15 +2405,7 @@ function generateQR(){
         s.kelas===filter
     );
 
-
-  const grid =
-    document.getElementById(
-      'qrGrid'
-    );
-
-
   grid.innerHTML='';
-
 
   list.forEach(s=>{
 
@@ -2501,49 +2416,31 @@ function generateQR(){
         s.nis
       );
 
-
     const card =
-      document.createElement(
-        'div'
-      );
+      document.createElement('div');
 
     card.className =
       'qr-card';
 
-
     const box =
-      document.createElement(
-        'div'
-      );
+      document.createElement('div');
 
     box.className =
       'qr-box';
 
-
     card.innerHTML =
       '<div class="qr-name">' +
-      escapeHtml(
-        s.nama
-      ) +
+      escapeHtml(s.nama) +
       '</div>' +
 
       '<div class="qr-meta">' +
       'NIS: ' +
-      escapeHtml(
-        s.nis
-      ) +
-
+      escapeHtml(s.nis) +
       ' • Kelas: ' +
-
-      escapeHtml(
-        s.kelas
-      ) +
-
+      escapeHtml(s.kelas) +
       '</div>';
 
-
     card.appendChild(box);
-
 
     card.insertAdjacentHTML(
       'beforeend',
@@ -2552,35 +2449,46 @@ function generateQR(){
       '</div>'
     );
 
-
     grid.appendChild(card);
 
+    try{
 
-    new QRCode(
-      box,
-      {
-        text:qr,
-        width:180,
-        height:180,
-        correctLevel:
-          QRCode.CorrectLevel.M
-      }
-    );
+      new QRCode(
+        box,
+        {
+          text:qr,
+          width:180,
+          height:180,
+          correctLevel:
+            QRCode.CorrectLevel.M
+        }
+      );
+
+    }
+    catch(e){
+
+      box.innerHTML =
+        '<div class="result bad">' +
+        'QR gagal dibuat.' +
+        '</div>';
+
+    }
 
   });
 
+  const info =
+    document.getElementById('qrInfo');
 
-  document.getElementById(
-    'qrInfo'
-  ).className =
-    'result ok';
+  if(info){
 
+    info.className =
+      'result ok';
 
-  document.getElementById(
-    'qrInfo'
-  ).textContent =
-    list.length +
-    ' QR siswa berhasil dibuat.';
+    info.textContent =
+      list.length +
+      ' QR siswa berhasil dibuat.';
+
+  }
 
 }
 
@@ -2592,10 +2500,7 @@ function generateQR(){
 async function loadRekap(){
 
   const body =
-    document.getElementById(
-      'rekapBody'
-    );
-
+    document.getElementById('rekapBody');
 
   body.innerHTML =
     '<tr>' +
@@ -2603,7 +2508,6 @@ async function loadRekap(){
     'Memuat data...' +
     '</td>' +
     '</tr>';
-
 
   try{
 
@@ -2624,7 +2528,6 @@ async function loadRekap(){
 
       });
 
-
     if(!r.ok){
 
       body.innerHTML =
@@ -2639,7 +2542,6 @@ async function loadRekap(){
 
     }
 
-
     body.innerHTML =
       (r.data || [])
       .map(x=>{
@@ -2648,14 +2550,11 @@ async function loadRekap(){
           x.status ||
           'Belum Hadir';
 
-
         const ket =
           x.keterangan ||
           '';
 
-
         let badge='';
-
 
         if(
           ket.toUpperCase()
@@ -2694,7 +2593,6 @@ async function loadRekap(){
             '</span>';
 
         }
-
 
         return (
 
@@ -2736,9 +2634,7 @@ async function loadRekap(){
 
     body.innerHTML =
       '<tr><td colspan="6">' +
-      escapeHtml(
-        e.message
-      ) +
+      escapeHtml(e.message) +
       '</td></tr>';
 
   }
@@ -2748,9 +2644,30 @@ async function loadRekap(){
 
 /* =====================================================
    LOAD GURU
+   PERBAIKAN UTAMA QR GURU
 ===================================================== */
 
 async function loadGuru(){
+
+  if(guruLoading)
+    return;
+
+  guruLoading=true;
+
+  const info =
+    document.getElementById(
+      'guruQrInfo'
+    );
+
+  if(info){
+
+    info.className =
+      'result';
+
+    info.textContent =
+      'Memuat data Guru/Tendik...';
+
+  }
 
   try{
 
@@ -2759,19 +2676,128 @@ async function loadGuru(){
         action:'guru_list'
       });
 
+    if(!r){
+
+      allGuru=[];
+
+      renderGuru();
+
+      generateGuruQR();
+
+      return;
+
+    }
+
+    /*
+      Pastikan data selalu array.
+      Ini mencegah QR hilang jika
+      Code.gs mengembalikan data kosong.
+    */
 
     allGuru =
-      r.data || [];
+      Array.isArray(r.data)
+      ? r.data
+      : [];
 
+    /*
+      Normalisasi field QR.
+      Jika Code.gs tidak mengirim qr,
+      QR tetap dibuat dari NIP.
+    */
+
+    allGuru =
+      allGuru.map(x=>{
+
+        const nip =
+          String(
+            x.nip ??
+            x.NIP ??
+            x.id ??
+            ''
+          ).trim();
+
+        const nama =
+          x.nama ??
+          x.Nama ??
+          '';
+
+        const jabatan =
+          x.jabatan ??
+          x.Jabatan ??
+          '';
+
+        const mapel =
+          x.mapel ??
+          x.Mapel ??
+          '';
+
+        const qr =
+          String(
+            x.qr ??
+            x.qr_id ??
+            x.QR_ID ??
+            ''
+          ).trim()
+          ||
+          (
+            nip
+            ?
+            'SMPHUSNA-GURU-' + nip
+            :
+            ''
+          );
+
+        return {
+          ...x,
+          nip:nip,
+          nama:nama,
+          jabatan:jabatan,
+          mapel:mapel,
+          qr:qr
+        };
+
+      });
 
     renderGuru();
+
+    /*
+      PENTING:
+      QR baru dibuat DI SINI,
+      setelah allGuru benar-benar
+      selesai menerima data.
+    */
 
     generateGuruQR();
 
   }
   catch(e){
 
-    console.error(e);
+    console.error(
+      'loadGuru:',
+      e
+    );
+
+    allGuru=[];
+
+    renderGuru();
+
+    if(info){
+
+      info.className =
+        'result bad';
+
+      info.innerHTML =
+        '<b>Gagal memuat data Guru/Tendik.</b>' +
+        '<br><small>' +
+        escapeHtml(e.message) +
+        '</small>';
+
+    }
+
+  }
+  finally{
+
+    guruLoading=false;
 
   }
 
@@ -2789,6 +2815,8 @@ function renderGuru(){
       'guruBody'
     );
 
+  if(!body)
+    return;
 
   if(!allGuru.length){
 
@@ -2803,42 +2831,65 @@ function renderGuru(){
 
   }
 
-
   body.innerHTML =
     allGuru.map(
-      x=>
+      (x,i)=>{
 
-      '<tr>' +
+        const nip =
+          x.nip || '';
 
-      '<td>' +
-      escapeHtml(x.nip) +
-      '</td>' +
+        const nama =
+          x.nama || '';
 
-      '<td>' +
-      escapeHtml(x.nama) +
-      '</td>' +
+        const jabatan =
+          x.jabatan || '';
 
-      '<td>' +
-      escapeHtml(x.jabatan) +
-      '</td>' +
+        const qr =
+          x.qr ||
+          (
+            nip
+            ?
+            'SMPHUSNA-GURU-'+nip
+            :
+            ''
+          );
 
-      '<td>' +
-      escapeHtml(x.qr) +
-      '</td>' +
+        return (
 
-      '<td>' +
+          '<tr>' +
 
-      '<button class="danger" ' +
-      'onclick="deleteGuru(\'' +
-      escapeAttr(x.nip) +
-      '\')">' +
-      'Hapus' +
-      '</button>' +
+          '<td>' +
+          escapeHtml(nip) +
+          '</td>' +
 
-      '</td>' +
+          '<td>' +
+          escapeHtml(nama) +
+          '</td>' +
 
-      '</tr>'
+          '<td>' +
+          escapeHtml(jabatan) +
+          '</td>' +
 
+          '<td>' +
+          escapeHtml(qr) +
+          '</td>' +
+
+          '<td>' +
+
+          '<button class="danger" ' +
+          'onclick="deleteGuru(\'' +
+          escapeAttr(nip) +
+          '\')">' +
+          'Hapus' +
+          '</button>' +
+
+          '</td>' +
+
+          '</tr>'
+
+        );
+
+      }
     ).join('');
 
 }
@@ -2855,30 +2906,25 @@ async function saveGuru(){
       'newGuruNip'
     ).value.trim();
 
-
   const nama =
     document.getElementById(
       'newGuruNama'
     ).value.trim();
-
 
   const jabatan =
     document.getElementById(
       'newGuruJabatan'
     ).value.trim();
 
-
   const mapel =
     document.getElementById(
       'newGuruMapel'
     ).value.trim();
 
-
   let qr =
     document.getElementById(
       'newGuruQr'
     ).value.trim();
-
 
   if(
     !nip ||
@@ -2897,7 +2943,6 @@ async function saveGuru(){
 
   }
 
-
   if(!qr){
 
     qr =
@@ -2906,7 +2951,6 @@ async function saveGuru(){
 
   }
 
-
   try{
 
     const username =
@@ -2914,12 +2958,10 @@ async function saveGuru(){
         'absenUsername'
       ) || '';
 
-
     const password =
       document.getElementById(
         'password'
       ).value || '';
-
 
     const r =
       await jsonp({
@@ -2942,7 +2984,6 @@ async function saveGuru(){
 
       });
 
-
     if(r.ok){
 
       document.getElementById(
@@ -2950,16 +2991,23 @@ async function saveGuru(){
       ).innerHTML =
         '<div class="result ok">' +
         escapeHtml(
-          r.message
+          r.message ||
+          'Guru berhasil disimpan.'
         ) +
         '<br>QR ID: <b>' +
         escapeHtml(qr) +
-        '</b></div>';
-
+        '</b>' +
+        '</div>';
 
       clearGuruForm(false);
 
-      loadGuru();
+      /*
+        Setelah save berhasil,
+        ambil ulang data dari Spreadsheet.
+        QR dibuat ulang setelah data selesai.
+      */
+
+      await loadGuru();
 
     }
     else{
@@ -2969,7 +3017,8 @@ async function saveGuru(){
       ).innerHTML =
         '<div class="result bad">' +
         escapeHtml(
-          r.message
+          r.message ||
+          'Gagal menyimpan guru.'
         ) +
         '</div>';
 
@@ -2982,9 +3031,7 @@ async function saveGuru(){
       'guruMsg'
     ).innerHTML =
       '<div class="result bad">' +
-      escapeHtml(
-        e.message
-      ) +
+      escapeHtml(e.message) +
       '</div>';
 
   }
@@ -3020,7 +3067,6 @@ function clearGuruForm(
     'newGuruQr'
   ).value='';
 
-
   if(clearMsg){
 
     document.getElementById(
@@ -3045,7 +3091,6 @@ async function deleteGuru(nip){
   )
     return;
 
-
   try{
 
     const r =
@@ -3067,10 +3112,9 @@ async function deleteGuru(nip){
 
       });
 
-
     if(r.ok){
 
-      loadGuru();
+      await loadGuru();
 
     }
     else{
@@ -3096,6 +3140,7 @@ async function deleteGuru(nip){
 
 /* =====================================================
    GENERATE QR GURU
+   VERSI PERBAIKAN
 ===================================================== */
 
 function generateGuruQR(){
@@ -3105,23 +3150,93 @@ function generateGuruQR(){
       'guruQrGrid'
     );
 
+  const info =
+    document.getElementById(
+      'guruQrInfo'
+    );
 
   if(!grid)
     return;
 
+  /*
+    Hapus QR lama terlebih dahulu.
+    Kemudian buat ulang dari allGuru terbaru.
+  */
 
   grid.innerHTML='';
 
+  if(!Array.isArray(allGuru) || !allGuru.length){
 
-  allGuru.forEach(x=>{
+    if(info){
+
+      info.className =
+        'result warning';
+
+      info.innerHTML =
+        'Belum ada data Guru/Tendik yang dapat dibuat QR.';
+
+    }
+
+    return;
+
+  }
+
+  let berhasil=0;
+
+  allGuru.forEach((x,index)=>{
+
+    const nip =
+      String(
+        x.nip ||
+        x.NIP ||
+        x.id ||
+        ''
+      ).trim();
+
+    const nama =
+      String(
+        x.nama ||
+        x.Nama ||
+        ''
+      ).trim();
+
+    const jabatan =
+      String(
+        x.jabatan ||
+        x.Jabatan ||
+        ''
+      ).trim();
+
+    const mapel =
+      String(
+        x.mapel ||
+        x.Mapel ||
+        ''
+      ).trim();
+
+    /*
+      QR menggunakan QR ID dari Spreadsheet.
+      Jika kosong, otomatis dibuat dari NIP.
+    */
 
     const qr =
-      x.qr ||
+      String(
+        x.qr ||
+        x.qr_id ||
+        x.QR_ID ||
+        ''
+      ).trim()
+      ||
       (
-        'SMPHUSNA-GURU-' +
-        x.nip
+        nip
+        ?
+        'SMPHUSNA-GURU-' + nip
+        :
+        ''
       );
 
+    if(!qr)
+      return;
 
     const card =
       document.createElement(
@@ -3131,6 +3246,44 @@ function generateGuruQR(){
     card.className =
       'qr-card';
 
+    const title =
+      document.createElement(
+        'div'
+      );
+
+    title.className =
+      'qr-name';
+
+    title.textContent =
+      nama || 'Guru/Tendik';
+
+    const meta =
+      document.createElement(
+        'div'
+      );
+
+    meta.className =
+      'qr-meta';
+
+    meta.textContent =
+      (
+        jabatan ||
+        'Guru/Tendik'
+      ) +
+      (
+        nip
+        ?
+        ' • ' + nip
+        :
+        ''
+      );
+
+    if(mapel){
+
+      meta.textContent +=
+        ' • ' + mapel;
+
+    }
 
     const box =
       document.createElement(
@@ -3140,70 +3293,78 @@ function generateGuruQR(){
     box.className =
       'qr-box';
 
+    const qrId =
+      document.createElement(
+        'div'
+      );
 
-    card.innerHTML =
-      '<div class="qr-name">' +
-      escapeHtml(
-        x.nama
-      ) +
-      '</div>' +
+    qrId.className =
+      'qr-id';
 
-      '<div class="qr-meta">' +
-      escapeHtml(
-        x.jabatan
-      ) +
+    qrId.textContent =
+      qr;
 
-      ' • ' +
-
-      escapeHtml(
-        x.nip
-      ) +
-
-      '</div>';
-
-
+    card.appendChild(title);
+    card.appendChild(meta);
     card.appendChild(box);
-
-
-    card.insertAdjacentHTML(
-      'beforeend',
-      '<div class="qr-id">' +
-      escapeHtml(qr) +
-      '</div>'
-    );
-
+    card.appendChild(qrId);
 
     grid.appendChild(card);
 
+    try{
 
-    new QRCode(
-      box,
-      {
-        text:qr,
-        width:180,
-        height:180,
-        correctLevel:
-          QRCode.CorrectLevel.M
-      }
-    );
+      new QRCode(
+        box,
+        {
+          text:qr,
+          width:180,
+          height:180,
+          correctLevel:
+            QRCode.CorrectLevel.M
+        }
+      );
+
+      berhasil++;
+
+    }
+    catch(e){
+
+      box.innerHTML =
+        '<div class="result bad">' +
+        'QR gagal dibuat.' +
+        '</div>';
+
+      console.error(
+        'QR Guru error:',
+        e
+      );
+
+    }
 
   });
 
-
-  const info =
-    document.getElementById(
-      'guruQrInfo'
-    );
-
-
   if(info){
 
-    info.className =
-      'result ok';
+    if(berhasil){
 
-    info.textContent =
-      allGuru.length +
-      ' QR Guru/Tendik berhasil dibuat.';
+      info.className =
+        'result ok';
+
+      info.innerHTML =
+        '<b>✓ QR Guru berhasil dibuat.</b><br>' +
+        berhasil +
+        ' QR Guru/Tendik tersedia dan siap dicetak.';
+
+    }
+    else{
+
+      info.className =
+        'result bad';
+
+      info.textContent =
+        'Data Guru tersedia, tetapi QR tidak berhasil dibuat.';
+
+    }
 
   }
 
@@ -3254,7 +3415,6 @@ document.addEventListener(
 
     updateRuleText();
 
-
     if(
       sessionStorage.getItem(
         'absenLogin'
@@ -3265,14 +3425,19 @@ document.addEventListener(
         'login'
       ).classList.add('hidden');
 
-
       document.getElementById(
         'app'
       ).classList.remove('hidden');
 
-
       loadDashboard();
+
       loadStudents();
+
+      /*
+        QR Guru akan dibuat otomatis
+        setelah guru_list selesai.
+      */
+
       loadGuru();
 
     }
