@@ -1,4 +1,3 @@
-```html
 <!doctype html>
 <html lang="id">
 <head>
@@ -24,9 +23,7 @@
   --orange:#9a5200;
 }
 
-*{
-  box-sizing:border-box
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
@@ -492,7 +489,6 @@ Memuat waktu...
 
 </header>
 
-
 <div class="wrap">
 
 <!-- LOGIN -->
@@ -565,9 +561,7 @@ Keluar
 </div>
 
 
-<!-- ================================================= -->
 <!-- SCAN -->
-<!-- ================================================= -->
 
 <div id="tab-scan">
 
@@ -580,9 +574,6 @@ Keluar
 <p class="small">
 Pilih jenis pengguna dan jenis absensi sebelum melakukan scan.
 </p>
-
-
-<!-- JENIS PENGGUNA -->
 
 <div class="type-box">
 
@@ -604,8 +595,6 @@ Pilih jenis pengguna dan jenis absensi sebelum melakukan scan.
 
 </div>
 
-
-<!-- MASUK PULANG -->
 
 <div class="mode-box">
 
@@ -687,15 +676,12 @@ Klik “Mulai Kamera”, lalu izinkan akses kamera.
 Jika kamera tidak tersedia, masukkan QR ID atau NIS/NIP secara manual.
 </p>
 
-
 <input id="manualQr"
        placeholder="Contoh QR ID">
-
 
 <button onclick="manualScan()">
 Catat Absensi
 </button>
-
 
 <div id="manualResult"></div>
 
@@ -706,9 +692,7 @@ Catat Absensi
 </div>
 
 
-<!-- ================================================= -->
 <!-- DASHBOARD -->
-<!-- ================================================= -->
 
 <div id="tab-dashboard"
      class="hidden">
@@ -716,7 +700,6 @@ Catat Absensi
 <div class="card">
 
 <h2>📊 Dashboard Hari Ini</h2>
-
 
 <div class="stats">
 
@@ -800,9 +783,7 @@ Guru:
 </div>
 
 
-<!-- ================================================= -->
 <!-- REKAP -->
-<!-- ================================================= -->
 
 <div id="tab-rekap"
      class="hidden">
@@ -810,7 +791,6 @@ Guru:
 <div class="card">
 
 <h2>📋 Rekap Absensi Siswa</h2>
-
 
 <div class="row">
 
@@ -879,15 +859,12 @@ Tampilkan Rekap
 </div>
 
 
-<!-- ================================================= -->
 <!-- SISWA -->
-<!-- ================================================= -->
 
 <div id="tab-siswa"
      class="hidden">
 
 <div class="grid">
-
 
 <div class="card">
 
@@ -897,30 +874,25 @@ Tampilkan Rekap
 Data siswa akan disimpan melalui Google Apps Script.
 </p>
 
-
 <label>NIS</label>
 
 <input id="newNis"
        placeholder="Contoh: 25001">
-
 
 <label>NISN</label>
 
 <input id="newNisn"
        placeholder="NISN">
 
-
 <label>Nama Lengkap</label>
 
 <input id="newNama"
        placeholder="Nama siswa">
 
-
 <label>Kelas</label>
 
 <input id="newKelas"
        placeholder="VII Khalid Bin Walid">
-
 
 <label>JK</label>
 
@@ -940,12 +912,10 @@ Perempuan
 
 </select>
 
-
 <label>QR ID</label>
 
 <input id="newQr"
        placeholder="Otomatis dari NIS">
-
 
 <div style="
 display:flex;
@@ -962,7 +932,6 @@ Bersihkan
 </button>
 
 </div>
-
 
 <div id="studentMsg"></div>
 
@@ -1005,15 +974,12 @@ Bersihkan
 </div>
 
 
-<!-- ================================================= -->
 <!-- GURU -->
-<!-- ================================================= -->
 
 <div id="tab-guru"
      class="hidden">
 
 <div class="grid">
-
 
 <div class="card">
 
@@ -1025,36 +991,30 @@ QR Guru dibuat dengan format:
 <b>SMPHUSNA-GURU-NIP</b>.
 </p>
 
-
 <label>NIP / ID Pegawai</label>
 
 <input id="newGuruNip"
        placeholder="Contoh: 198501012010011001">
-
 
 <label>Nama Lengkap</label>
 
 <input id="newGuruNama"
        placeholder="Nama guru/tendik">
 
-
 <label>Jabatan</label>
 
 <input id="newGuruJabatan"
        placeholder="Guru Matematika / TU">
-
 
 <label>Mapel</label>
 
 <input id="newGuruMapel"
        placeholder="Matematika">
 
-
 <label>QR ID</label>
 
 <input id="newGuruQr"
        placeholder="Otomatis dari NIP">
-
 
 <div style="
 display:flex;
@@ -1071,7 +1031,6 @@ Bersihkan
 </button>
 
 </div>
-
 
 <div id="guruMsg"></div>
 
@@ -1133,17 +1092,13 @@ Buat QR Guru
 
 </div>
 
-
 <div id="guruQrInfo"
      class="result">
-
 </div>
-
 
 <div id="guruQrGrid"
      class="qr-grid"
      style="margin-top:15px">
-
 </div>
 
 </div>
@@ -1151,9 +1106,7 @@ Buat QR Guru
 </div>
 
 
-<!-- ================================================= -->
 <!-- CETAK QR -->
-<!-- ================================================= -->
 
 <div id="tab-qr"
      class="hidden">
@@ -1165,7 +1118,6 @@ Buat QR Guru
 <p class="small">
 QR Code dibuat dari QR_ID yang tersimpan di Google Spreadsheet.
 </p>
-
 
 <div class="row">
 
@@ -1182,7 +1134,6 @@ Semua Kelas
 </select>
 
 </div>
-
 
 <div style="
 display:flex;
@@ -1202,10 +1153,8 @@ Buat QR
 
 </div>
 
-
 <div id="qrInfo"
      class="result">
-
 </div>
 
 </div>
@@ -1251,13 +1200,9 @@ const API =
 
 
 let scanner = null;
-
 let allStudents = [];
-
 let allGuru = [];
-
 let scanType = 'SISWA';
-
 let scanMode = 'Masuk';
 
 
@@ -1290,7 +1235,6 @@ function jsonp(params){
       data => {
 
         cleanup();
-
         resolve(data);
 
       };
@@ -1382,11 +1326,7 @@ function updateClock(){
 
 }
 
-setInterval(
-  updateClock,
-  1000
-);
-
+setInterval(updateClock,1000);
 updateClock();
 
 
@@ -1465,9 +1405,7 @@ async function loginUser(){
     setToday();
 
     loadDashboard();
-
     loadStudents();
-
     loadGuru();
 
   }
@@ -1490,7 +1428,6 @@ async function loginUser(){
 function logout(){
 
   sessionStorage.clear();
-
   location.reload();
 
 }
@@ -1554,7 +1491,6 @@ function showTab(name,btn){
   if(name==='guru'){
 
     loadGuru();
-
     generateGuruQR();
 
   }
@@ -1604,7 +1540,6 @@ function setScanType(type){
 
   scanType = type;
 
-
   document
     .getElementById(
       'typeSiswa'
@@ -1614,7 +1549,6 @@ function setScanType(type){
       type==='SISWA'
     );
 
-
   document
     .getElementById(
       'typeGuru'
@@ -1623,7 +1557,6 @@ function setScanType(type){
       'active',
       type==='GURU'
     );
-
 
   updateRuleText();
 
@@ -1638,7 +1571,6 @@ function setMode(mode){
 
   scanMode = mode;
 
-
   document
     .getElementById(
       'modeMasuk'
@@ -1648,7 +1580,6 @@ function setMode(mode){
       mode==='Masuk'
     );
 
-
   document
     .getElementById(
       'modePulang'
@@ -1657,7 +1588,6 @@ function setMode(mode){
       'active',
       mode==='Pulang'
     );
-
 
   updateRuleText();
 
@@ -1911,8 +1841,23 @@ async function recordAttendance(
       }
 
 
+      /*
+       * PERUBAHAN UTAMA:
+       *
+       * Status terlambat ditentukan dari
+       * response Code.gs.
+       *
+       * Jika r.terlambat === true:
+       * TERLAMBAT lebih dari 07.00
+       *
+       * Jika false:
+       * Tepat waktu sampai 07.00
+       */
+
       const late =
-        r.terlambat === true;
+        r.terlambat === true ||
+        String(r.terlambat)
+          .toLowerCase() === 'true';
 
 
       let info = '';
@@ -1924,7 +1869,7 @@ async function recordAttendance(
 
           info =
             '<span class="late">' +
-            '⚠ TERLAMBAT — lewat 07.00' +
+            '⚠ Terlambat lebih dari 07.00' +
             '</span>';
 
         }
@@ -1932,7 +1877,7 @@ async function recordAttendance(
 
           info =
             '<span class="ontime">' +
-            '✓ TEPAT WAKTU — sampai 07.00' +
+            '✓ Tepat waktu sampai 07.00' +
             '</span>';
 
         }
@@ -1956,7 +1901,7 @@ async function recordAttendance(
         '<b>' +
         escapeHtml(
           r.message ||
-          'Absensi berhasil'
+          'Absensi berhasil disimpan.'
         ) +
         '</b><br>' +
 
@@ -2409,17 +2354,6 @@ async function saveStudent(){
   }
 
 
-  /*
-    Jika Code.gs Anda belum memiliki
-    action siswa_save, data tetap
-    tidak dipaksa masuk localStorage.
-
-    Tambahkan action siswa_save di Code.gs
-    agar fitur ini benar-benar tersimpan
-    ke Spreadsheet.
-  */
-
-
   try{
 
     const r =
@@ -2510,29 +2444,12 @@ function clearStudentForm(
   clearMsg=true
 ){
 
-  document.getElementById(
-    'newNis'
-  ).value='';
-
-  document.getElementById(
-    'newNisn'
-  ).value='';
-
-  document.getElementById(
-    'newNama'
-  ).value='';
-
-  document.getElementById(
-    'newKelas'
-  ).value='';
-
-  document.getElementById(
-    'newJk'
-  ).value='';
-
-  document.getElementById(
-    'newQr'
-  ).value='';
+  document.getElementById('newNis').value='';
+  document.getElementById('newNisn').value='';
+  document.getElementById('newNama').value='';
+  document.getElementById('newKelas').value='';
+  document.getElementById('newJk').value='';
+  document.getElementById('newQr').value='';
 
 
   if(clearMsg){
@@ -2889,7 +2806,7 @@ function renderGuru(){
 
   body.innerHTML =
     allGuru.map(
-      (x,i)=>
+      x=>
 
       '<tr>' +
 
@@ -2991,11 +2908,6 @@ async function saveGuru(){
 
 
   try{
-
-    /*
-      Password diambil dari form login.
-      Username disimpan di session.
-    */
 
     const username =
       sessionStorage.getItem(
@@ -3360,9 +3272,7 @@ document.addEventListener(
 
 
       loadDashboard();
-
       loadStudents();
-
       loadGuru();
 
     }
@@ -3374,4 +3284,3 @@ document.addEventListener(
 
 </body>
 </html>
-```
