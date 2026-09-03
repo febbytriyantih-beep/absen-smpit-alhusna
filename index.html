@@ -6,733 +6,414 @@
 <meta charset="utf-8">
 
 <meta
-  name="viewport"
-  content="width=device-width,initial-scale=1"
->
+name="viewport"
+content="width=device-width,initial-scale=1">
 
 <title>
-ABSENSI DIGITAL SMPIT AL-HUSNA
+Absensi Digital SMPIT Al-Husna
 </title>
-
 
 <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-
 <style>
 
 :root{
-
-  --blue:#252b86;
-  --blue2:#3e49a9;
-  --yellow:#ffe500;
-
-  --bg:#f4f7fb;
-
-  --text:#182033;
-
-  --muted:#667085;
-
-  --line:#e4e8f0;
-
-  --green:#146c32;
-
-  --red:#9b1c1c;
-
-  --orange:#9a5200;
-
+--blue:#252b86;
+--blue2:#3e49a9;
+--yellow:#ffe500;
+--bg:#f4f7fb;
+--text:#182033;
+--muted:#667085;
+--line:#e4e8f0;
+--green:#146c32;
+--red:#9b1c1c;
 }
-
 
 *{
-  box-sizing:border-box;
+box-sizing:border-box
 }
-
 
 body{
-
-  margin:0;
-
-  font-family:
-    Arial,
-    sans-serif;
-
-  background:
-    var(--bg);
-
-  color:
-    var(--text);
-
+margin:0;
+font-family:Arial,sans-serif;
+background:var(--bg);
+color:var(--text)
 }
-
 
 header{
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--blue),
-      var(--blue2)
-    );
-
-  color:#fff;
-
-  padding:
-    14px 20px;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:14px;
-
-  position:sticky;
-
-  top:0;
-
-  z-index:5;
-
+background:linear-gradient(
+135deg,
+var(--blue),
+var(--blue2)
+);
+color:#fff;
+padding:14px 20px;
+display:flex;
+align-items:center;
+gap:14px;
+position:sticky;
+top:0;
+z-index:5
 }
-
 
 .logo{
-
-  width:58px;
-
-  height:58px;
-
-  border-radius:50%;
-
-  object-fit:cover;
-
-  background:#fff;
-
-  border:
-    3px solid
-    var(--yellow);
-
+width:58px;
+height:58px;
+border-radius:50%;
+object-fit:cover;
+background:#fff;
+border:3px solid var(--yellow)
 }
-
 
 h1{
-
-  font-size:20px;
-
-  margin:0;
-
+font-size:20px;
+margin:0
 }
-
 
 .sub{
-
-  opacity:.85;
-
-  font-size:13px;
-
-  margin-top:3px;
-
+opacity:.85;
+font-size:13px;
+margin-top:3px
 }
-
 
 .wrap{
-
-  max-width:1200px;
-
-  margin:auto;
-
-  padding:18px;
-
+max-width:1200px;
+margin:auto;
+padding:18px
 }
-
 
 .grid{
-
-  display:grid;
-
-  grid-template-columns:
-    1.05fr .95fr;
-
-  gap:18px;
-
+display:grid;
+grid-template-columns:1.05fr .95fr;
+gap:18px
 }
-
 
 .card{
-
-  background:#fff;
-
-  border-radius:18px;
-
-  padding:18px;
-
-  box-shadow:
-    0 6px 22px
-    #16224a12;
-
-  margin-bottom:18px;
-
+background:#fff;
+border-radius:18px;
+padding:18px;
+box-shadow:0 6px 22px #16224a12;
+margin-bottom:18px
 }
-
 
 .card h2{
-
-  margin:
-    0 0 14px;
-
-  font-size:18px;
-
+margin:0 0 14px;
+font-size:18px
 }
-
 
 .stats{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  gap:10px;
-
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px
 }
-
 
 .stat{
-
-  padding:14px;
-
-  border-radius:14px;
-
-  background:#f7f9ff;
-
+padding:14px;
+border-radius:14px;
+background:#f7f9ff
 }
-
 
 .num{
-
-  font-size:28px;
-
-  font-weight:800;
-
+font-size:28px;
+font-weight:800
 }
-
 
 .lab{
-
-  font-size:12px;
-
-  color:var(--muted);
-
+font-size:12px;
+color:var(--muted)
 }
-
 
 button{
-
-  border:0;
-
-  border-radius:11px;
-
-  padding:
-    11px 14px;
-
-  font-weight:700;
-
-  cursor:pointer;
-
-  background:
-    var(--blue);
-
-  color:#fff;
-
+border:0;
+border-radius:11px;
+padding:11px 14px;
+font-weight:700;
+cursor:pointer;
+background:var(--blue);
+color:#fff
 }
-
 
 button.alt{
-
-  background:#eef1ff;
-
-  color:var(--blue);
-
+background:#eef1ff;
+color:var(--blue)
 }
-
 
 button.warn{
-
-  background:var(--yellow);
-
-  color:#222;
-
+background:var(--yellow);
+color:#222
 }
-
 
 button.danger{
-
-  background:#fff0f0;
-
-  color:var(--red);
-
+background:#fff0f0;
+color:var(--red)
 }
-
 
 input,
 select{
-
-  width:100%;
-
-  padding:12px;
-
-  border:
-    1px solid
-    #d8deea;
-
-  border-radius:10px;
-
-  margin:
-    6px 0 10px;
-
-  background:#fff;
-
+width:100%;
+padding:12px;
+border:1px solid #d8deea;
+border-radius:10px;
+margin:6px 0 10px;
+background:#fff
 }
-
 
 .row{
-
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:10px;
-
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px
 }
-
 
 .hidden{
-
-  display:none!important;
-
+display:none!important
 }
 
-
-#reader{
-
-  width:100%;
-
-  max-width:520px;
-
-  margin:auto;
-
-  overflow:hidden;
-
-  border-radius:14px;
-
+#reader,
+#readerGuru{
+width:100%;
+max-width:520px;
+margin:auto;
+overflow:hidden;
+border-radius:14px
 }
-
 
 .result{
-
-  padding:14px;
-
-  border-radius:12px;
-
-  background:#f6f8fc;
-
-  margin-top:12px;
-
+padding:14px;
+border-radius:12px;
+background:#f6f8fc;
+margin-top:12px
 }
-
 
 .ok{
-
-  background:#eaf9ef;
-
-  color:var(--green);
-
+background:#eaf9ef;
+color:var(--green)
 }
-
 
 .bad{
-
-  background:#fff0f0;
-
-  color:var(--red);
-
+background:#fff0f0;
+color:var(--red)
 }
-
 
 .nav{
-
-  display:flex;
-
-  gap:8px;
-
-  flex-wrap:wrap;
-
-  margin-bottom:18px;
-
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin-bottom:18px
 }
-
 
 .nav button.active{
-
-  background:
-    var(--yellow);
-
-  color:#222;
-
+background:var(--yellow);
+color:#222
 }
-
 
 table{
-
-  width:100%;
-
-  border-collapse:collapse;
-
-  font-size:13px;
-
+width:100%;
+border-collapse:collapse;
+font-size:13px
 }
-
 
 th,
 td{
-
-  padding:10px;
-
-  border-bottom:
-    1px solid
-    #edf0f5;
-
-  text-align:left;
-
+padding:10px;
+border-bottom:1px solid #edf0f5;
+text-align:left
 }
-
 
 .table-wrap{
-
-  overflow:auto;
-
+overflow:auto
 }
-
 
 .qr-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:14px;
-
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px
 }
-
 
 .qr-card{
-
-  background:#fff;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:14px;
-
-  padding:14px;
-
-  text-align:center;
-
-  break-inside:avoid;
-
+background:#fff;
+border:1px solid var(--line);
+border-radius:14px;
+padding:14px;
+text-align:center;
+break-inside:avoid
 }
-
 
 .qr-box{
-
-  display:flex;
-
-  justify-content:center;
-
-  margin:8px 0;
-
+display:flex;
+justify-content:center;
+margin:8px 0
 }
-
 
 .qr-name{
-
-  font-weight:800;
-
-  font-size:15px;
-
+font-weight:800;
+font-size:15px
 }
-
 
 .qr-meta{
-
-  font-size:12px;
-
-  color:var(--muted);
-
-  margin-top:4px;
-
+font-size:12px;
+color:var(--muted);
+margin-top:4px
 }
-
 
 .qr-id{
-
-  font-size:10px;
-
-  color:#555;
-
-  word-break:break-all;
-
-  margin-top:6px;
-
+font-size:10px;
+color:#555;
+word-break:break-all;
+margin-top:6px
 }
-
 
 .late{
-
-  display:inline-block;
-
-  margin-top:8px;
-
-  padding:
-    6px 10px;
-
-  border-radius:8px;
-
-  background:#fff0d8;
-
-  color:var(--orange);
-
-  font-weight:800;
-
+display:inline-block;
+margin-top:8px;
+padding:6px 10px;
+border-radius:8px;
+background:#fff0d8;
+color:#9a5200;
+font-weight:800
 }
-
 
 .ontime{
-
-  display:inline-block;
-
-  margin-top:8px;
-
-  padding:
-    6px 10px;
-
-  border-radius:8px;
-
-  background:#eaf9ef;
-
-  color:var(--green);
-
-  font-weight:800;
-
+display:inline-block;
+margin-top:8px;
+padding:6px 10px;
+border-radius:8px;
+background:#eaf9ef;
+color:#146c32;
+font-weight:800
 }
-
 
 .small{
-
-  font-size:12px;
-
-  color:var(--muted);
-
+font-size:12px;
+color:var(--muted)
 }
-
 
 .badge{
-
-  display:inline-block;
-
-  padding:
-    5px 8px;
-
-  border-radius:8px;
-
-  background:#eef1ff;
-
-  color:var(--blue);
-
-  font-size:11px;
-
-  font-weight:700;
-
+display:inline-block;
+padding:5px 8px;
+border-radius:8px;
+background:#eef1ff;
+color:var(--blue);
+font-size:11px;
+font-weight:700
 }
-
 
 .print-head{
-
-  display:none;
-
+display:none
 }
 
+.mode{
+padding:10px;
+border-radius:10px;
+font-weight:800;
+text-align:center;
+margin:10px 0
+}
+
+.mode-masuk{
+background:#eef1ff;
+color:var(--blue)
+}
+
+.mode-pulang{
+background:#fff0d8;
+color:#9a5200
+}
 
 @media(max-width:800px){
 
-  .grid{
+.grid{
+grid-template-columns:1fr
+}
 
-    grid-template-columns:1fr;
+.stats{
+grid-template-columns:repeat(2,1fr)
+}
 
-  }
+.wrap{
+padding:12px
+}
 
+.row{
+grid-template-columns:1fr
+}
 
-  .stats{
+.qr-grid{
+grid-template-columns:repeat(2,1fr)
+}
 
-    grid-template-columns:
-      repeat(2,1fr);
-
-  }
-
-
-  .wrap{
-
-    padding:12px;
-
-  }
-
-
-  .row{
-
-    grid-template-columns:1fr;
-
-  }
-
-
-  .qr-grid{
-
-    grid-template-columns:
-      repeat(2,1fr);
-
-  }
-
-
-  h1{
-
-    font-size:17px;
-
-  }
+h1{
+font-size:17px
+}
 
 }
 
-
 @media print{
 
-  body{
+body{
+background:#fff
+}
 
-    background:#fff;
+.no-print,
+header,
+.nav{
+display:none!important
+}
 
-  }
+.wrap{
+max-width:none;
+padding:0
+}
 
+.print-head{
+display:block;
+text-align:center;
+margin:0 0 14px
+}
 
-  .no-print,
-  header,
-  .nav{
+.print-head h2{
+margin:0;
+font-size:20px
+}
 
-    display:none!important;
+.print-head p{
+margin:3px 0;
+font-size:12px
+}
 
-  }
+.card{
+box-shadow:none;
+padding:0;
+margin:0
+}
 
+.qr-grid{
+grid-template-columns:repeat(3,1fr);
+gap:10px
+}
 
-  .wrap{
+.qr-card{
+border:1px solid #bbb;
+padding:10px
+}
 
-    max-width:none;
+.qr-card .qr-box img{
+width:150px!important;
+height:150px!important
+}
 
-    padding:0;
+.qr-name{
+font-size:13px
+}
 
-  }
+.qr-meta{
+font-size:10px
+}
 
-
-  .print-head{
-
-    display:block;
-
-    text-align:center;
-
-    margin:
-      0 0 14px;
-
-  }
-
-
-  .print-head h2{
-
-    margin:0;
-
-    font-size:20px;
-
-  }
-
-
-  .print-head p{
-
-    margin:
-      3px 0;
-
-    font-size:12px;
-
-  }
-
-
-  .card{
-
-    box-shadow:none;
-
-    padding:0;
-
-    margin:0;
-
-  }
-
-
-  .qr-grid{
-
-    grid-template-columns:
-      repeat(3,1fr);
-
-    gap:10px;
-
-  }
-
-
-  .qr-card{
-
-    border:
-      1px solid #bbb;
-
-    padding:10px;
-
-  }
-
-
-  .qr-card .qr-box img{
-
-    width:
-      150px!important;
-
-    height:
-      150px!important;
-
-  }
-
-
-  .qr-name{
-
-    font-size:13px;
-
-  }
-
-
-  .qr-meta{
-
-    font-size:10px;
-
-  }
-
-
-  .qr-id{
-
-    font-size:8px;
-
-  }
+.qr-id{
+font-size:8px
+}
 
 }
 
@@ -740,29 +421,27 @@ td{
 
 </head>
 
-
 <body>
 
 
 <header>
 
-  <img
-    class="logo"
-    src="logo.jpg"
-    alt="Logo SMPIT Al-Husna"
-  >
+<img
+class="logo"
+src="logo.jpg"
+alt="Logo SMPIT Al-Husna">
 
-  <div>
+<div>
 
-    <h1>
-      ABSENSI DIGITAL SMPIT AL-HUSNA
-    </h1>
+<h1>
+ABSENSI DIGITAL SMPIT AL-HUSNA
+</h1>
 
-    <div class="sub">
-      Tahun Pelajaran 2026/2027 • QR Attendance
-    </div>
+<div class="sub">
+Tahun Pelajaran 2026/2027 • QR Attendance
+</div>
 
-  </div>
+</div>
 
 </header>
 
@@ -770,996 +449,859 @@ td{
 <div class="wrap">
 
 
-<!-- ======================================================
-     LOGIN
-====================================================== -->
+<!-- ================================================= -->
+<!-- LOGIN -->
+<!-- ================================================= -->
 
 <section
-  id="login"
-  class="card"
-  style="max-width:460px;margin:28px auto"
->
+id="login"
+class="card"
+style="max-width:460px;margin:28px auto">
 
-  <h2>
-    🔐 Login Petugas
-  </h2>
+<h2>🔐 Login Petugas</h2>
 
-  <label>
-    Username
-  </label>
+<label>Username</label>
 
-  <input
-    id="username"
-    value="admin"
-    autocomplete="username"
-  >
+<input
+id="username"
+value="admin">
 
+<label>Password</label>
 
-  <label>
-    Password
-  </label>
+<input
+id="password"
+type="password"
+value="admin123">
 
-  <input
-    id="password"
-    type="password"
-    value="admin123"
-    autocomplete="current-password"
-  >
+<button
+onclick="loginUser()">
 
+Masuk
 
-  <button onclick="loginUser()">
-    Masuk
-  </button>
+</button>
 
-
-  <div id="loginMsg"></div>
+<div id="loginMsg"></div>
 
 </section>
 
 
 
-<!-- ======================================================
-     APP
-====================================================== -->
+<!-- ================================================= -->
+<!-- APP -->
+<!-- ================================================= -->
 
 <section
-  id="app"
-  class="hidden"
->
+id="app"
+class="hidden">
 
 
 <!-- NAV -->
 
 <div class="nav">
 
-  <button
-    class="active"
-    onclick="showTab('scan',this)"
-  >
-    📷 Scan QR
-  </button>
+<button
+class="active"
+onclick="showTab('scan',this)">
+📷 Scan Siswa
+</button>
 
+<button
+onclick="showTab('guruScan',this)">
+👩‍🏫 Absen Guru
+</button>
 
-  <button
-    onclick="showTab('dashboard',this)"
-  >
-    📊 Dashboard
-  </button>
+<button
+onclick="showTab('dashboard',this)">
+📊 Dashboard
+</button>
 
+<button
+onclick="showTab('rekap',this)">
+📋 Rekap
+</button>
 
-  <button
-    onclick="showTab('rekap',this)"
-  >
-    📋 Rekap
-  </button>
+<button
+onclick="showTab('siswa',this)">
+👨‍🎓 Data Siswa
+</button>
 
+<button
+onclick="showTab('guru',this)">
+👩‍🏫 Data Guru
+</button>
 
-  <button
-    onclick="showTab('siswa',this)"
-  >
-    👨‍🎓 Siswa
-  </button>
+<button
+onclick="showTab('qr',this)">
+🪪 QR Siswa
+</button>
 
-
-  <button
-    onclick="showTab('guru',this)"
-  >
-    👩‍🏫 Guru/Tendik
-  </button>
-
-
-  <button
-    onclick="showTab('qr',this)"
-  >
-    🪪 QR Siswa
-  </button>
-
-
-  <button
-    class="alt"
-    onclick="logout()"
-  >
-    Keluar
-  </button>
+<button
+class="alt"
+onclick="logout()">
+Keluar
+</button>
 
 </div>
 
 
 
-<!-- ======================================================
-     SCAN
-====================================================== -->
+<!-- ================================================= -->
+<!-- SCAN SISWA -->
+<!-- ================================================= -->
 
 <div id="tab-scan">
 
-  <div class="grid">
+<div class="grid">
+
+<div class="card">
+
+<h2>📷 Scanner QR Siswa</h2>
+
+<p class="small">
+
+Batas masuk:
+
+<b>07.00</b>
+
+<br>
+
+Setelah 07.00 otomatis diberi keterangan
+
+<b>TERLAMBAT</b>.
+
+</p>
+
+<div id="reader"></div>
+
+<div
+style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+
+<button
+onclick="startScanner()">
+Mulai Kamera
+</button>
+
+<button
+class="alt"
+onclick="stopScanner()">
+Matikan Kamera
+</button>
+
+</div>
+
+<div
+id="scanResult"
+class="result">
+
+Klik "Mulai Kamera", lalu izinkan kamera.
+
+</div>
+
+</div>
 
 
-    <div class="card">
+<div class="card">
 
-      <h2>
-        📷 Scanner QR
-      </h2>
+<h2>⌨️ Input Manual</h2>
 
+<p class="small">
+Masukkan NIS atau QR ID siswa.
+</p>
 
-      <p class="small">
+<input
+id="manualQr"
+placeholder="SMPHUSNA-25001">
 
-        Scanner otomatis membedakan QR Siswa
-        dan QR Guru/Tendik.
+<button
+onclick="manualScan()">
 
-        <br>
+Catat Hadir
 
-        Batas waktu hadir:
-        <b>07.00</b>.
+</button>
 
-      </p>
+<div id="manualResult"></div>
 
+</div>
 
-      <div id="reader"></div>
-
-
-      <div
-        style="
-          display:flex;
-          gap:8px;
-          flex-wrap:wrap;
-          margin-top:12px
-        "
-      >
-
-        <button
-          onclick="startScanner()"
-        >
-          📷 Mulai Kamera
-        </button>
-
-
-        <button
-          class="alt"
-          onclick="stopScanner()"
-        >
-          Matikan Kamera
-        </button>
-
-      </div>
-
-
-      <div
-        id="scanResult"
-        class="result"
-      >
-
-        Klik "Mulai Kamera",
-        lalu izinkan akses kamera.
-
-      </div>
-
-    </div>
-
-
-
-    <div class="card">
-
-      <h2>
-        ⌨️ Input Manual
-      </h2>
-
-
-      <p class="small">
-
-        Dapat digunakan jika kamera
-        tidak tersedia.
-
-      </p>
-
-
-      <input
-        id="manualQr"
-        placeholder="SMPHUSNA-25001 atau SMPHUSNA-GURU-001"
-      >
-
-
-      <button
-        onclick="manualScan()"
-      >
-        Catat Absensi
-      </button>
-
-
-      <div id="manualResult"></div>
-
-    </div>
-
-  </div>
+</div>
 
 </div>
 
 
 
-<!-- ======================================================
-     DASHBOARD
-====================================================== -->
+<!-- ================================================= -->
+<!-- GURU SCAN -->
+<!-- ================================================= -->
 
 <div
-  id="tab-dashboard"
-  class="hidden"
->
+id="tab-guruScan"
+class="hidden">
+
+<div class="grid">
 
 
-  <div class="card">
+<div class="card">
 
-    <h2>
-      📊 Dashboard Hari Ini
-    </h2>
+<h2>👩‍🏫 Absensi Guru & Tendik</h2>
 
+<div
+id="guruMode"
+class="mode mode-masuk">
 
-    <div class="stats">
+MODE MASUK
 
+</div>
 
-      <div class="stat">
+<p class="small">
 
-        <div
-          class="num"
-          id="total"
-        >
-          0
-        </div>
+Masuk:
 
-        <div class="lab">
-          Total Siswa
-        </div>
+<b>≤ 07.00 = TEPAT WAKTU</b>
 
-      </div>
+<br>
 
+Setelah 07.00:
 
-      <div class="stat">
+<b>TERLAMBAT</b>
 
-        <div
-          class="num"
-          id="hadir"
-        >
-          0
-        </div>
+<br>
 
-        <div class="lab">
-          Hadir
-        </div>
+Pulang:
 
-      </div>
+<b>mulai 15.45</b>
+
+</p>
 
 
-      <div class="stat">
-
-        <div
-          class="num"
-          id="belum"
-        >
-          0
-        </div>
-
-        <div class="lab">
-          Belum Hadir
-        </div>
-
-      </div>
+<div id="readerGuru"></div>
 
 
-      <div class="stat">
+<div
+style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
 
-        <div
-          class="num"
-          id="terlambat"
-        >
-          0
-        </div>
+<button
+onclick="startGuruScanner()">
 
-        <div class="lab">
-          Terlambat
-        </div>
+📷 Scan Masuk
 
-      </div>
+</button>
 
 
-    </div>
+<button
+class="warn"
+onclick="setGuruPulang()">
+
+🏠 Mode Pulang
+
+</button>
 
 
-    <p class="small">
+<button
+class="alt"
+onclick="setGuruMasuk()">
 
-      Batas masuk:
-      <b>07.00</b>
+🔄 Mode Masuk
 
-    </p>
-
-  </div>
-
+</button>
 
 
-  <div class="card">
+<button
+class="alt"
+onclick="stopGuruScanner()">
 
-    <h2>
-      👩‍🏫 Dashboard Guru/Tendik
-    </h2>
+Matikan Kamera
 
+</button>
 
-    <div class="stats">
-
-
-      <div class="stat">
-
-        <div
-          class="num"
-          id="guruTotal"
-        >
-          0
-        </div>
-
-        <div class="lab">
-          Total Guru/Tendik
-        </div>
-
-      </div>
+</div>
 
 
-      <div class="stat">
+<div
+id="guruScanResult"
+class="result">
 
-        <div
-          class="num"
-          id="guruHadir"
-        >
-          0
-        </div>
+Silakan pilih mode dan scan QR Guru.
 
-        <div class="lab">
-          Sudah Hadir
-        </div>
-
-      </div>
-
-
-      <div class="stat">
-
-        <div
-          class="num"
-          id="guruBelum"
-        >
-          0
-        </div>
-
-        <div class="lab">
-          Belum Hadir
-        </div>
-
-      </div>
-
-
-      <div class="stat">
-
-        <div
-          class="num"
-          id="guruTerlambat"
-        >
-          0
-        </div>
-
-        <div class="lab">
-          Terlambat
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </div>
 
 
 
-<!-- ======================================================
-     REKAP
-====================================================== -->
+<div class="card">
 
-<div
-  id="tab-rekap"
-  class="hidden"
->
+<h2>⏰ Jadwal Absensi</h2>
 
-  <div class="card">
+<div class="result ok">
 
-    <h2>
-      📋 Rekap Absensi Siswa
-    </h2>
+<b>MASUK</b>
 
+<br>
 
-    <div class="row">
+Sampai 07.00 = TEPAT WAKTU
 
+<br>
 
-      <div>
+Setelah 07.00 = TERLAMBAT
 
-        <label>
-          Tanggal
-        </label>
-
-        <input
-          type="date"
-          id="tanggal"
-        >
-
-      </div>
+</div>
 
 
-      <div>
+<div class="result">
 
-        <label>
-          Kelas
-        </label>
+<b>PULANG</b>
 
-        <select id="kelas">
+<br>
 
-          <option value="">
-            Semua Kelas
-          </option>
+Mulai pukul 15.45.
 
-        </select>
+<br>
 
-      </div>
+Sebelum 15.45 akan ditolak sistem.
+
+</div>
 
 
-    </div>
+<div class="result">
 
+<b>Database</b>
 
-    <button onclick="loadRekap()">
-      Tampilkan Rekap
-    </button>
+<br>
 
+Data guru tersimpan di Google Spreadsheet sehingga dapat digunakan dari PC, laptop, HP dan tablet.
 
-    <div
-      class="table-wrap"
-      style="margin-top:15px"
-    >
+</div>
 
-      <table>
+</div>
 
-        <thead>
-
-          <tr>
-
-            <th>
-              NIS
-            </th>
-
-            <th>
-              Nama
-            </th>
-
-            <th>
-              Kelas
-            </th>
-
-            <th>
-              Jam
-            </th>
-
-            <th>
-              Status
-            </th>
-
-            <th>
-              Keterangan
-            </th>
-
-          </tr>
-
-        </thead>
-
-
-        <tbody id="rekapBody"></tbody>
-
-      </table>
-
-    </div>
-
-  </div>
+</div>
 
 </div>
 
 
 
-<!-- ======================================================
-     SISWA
-====================================================== -->
+<!-- ================================================= -->
+<!-- DASHBOARD -->
+<!-- ================================================= -->
 
 <div
-  id="tab-siswa"
-  class="hidden"
->
+id="tab-dashboard"
+class="hidden">
+
+<div class="card">
+
+<h2>📊 Dashboard Hari Ini</h2>
+
+<div class="stats">
+
+<div class="stat">
+
+<div
+class="num"
+id="total">
+0
+</div>
+
+<div class="lab">
+Total Siswa
+</div>
+
+</div>
 
 
-  <div class="grid">
+<div class="stat">
+
+<div
+class="num"
+id="hadir">
+0
+</div>
+
+<div class="lab">
+Hadir
+</div>
+
+</div>
 
 
-    <div class="card">
+<div class="stat">
 
-      <h2>
-        ➕ Tambah Siswa
-      </h2>
+<div
+class="num"
+id="belum">
+0
+</div>
 
+<div class="lab">
+Belum Hadir
+</div>
 
-      <label>
-        NIS
-      </label>
-
-      <input
-        id="newNis"
-        placeholder="Contoh: 25001"
-      >
+</div>
 
 
-      <label>
-        NISN
-      </label>
+<div class="stat">
 
-      <input
-        id="newNisn"
-        placeholder="Opsional"
-      >
+<div
+class="num"
+id="izin">
+0
+</div>
 
+<div class="lab">
+Izin/Sakit/Alpa
+</div>
 
-      <label>
-        Nama Lengkap
-      </label>
+</div>
 
-      <input
-        id="newNama"
-        placeholder="Nama siswa"
-      >
+</div>
 
-
-      <label>
-        Kelas
-      </label>
-
-      <input
-        id="newKelas"
-        placeholder="VII Khalid Bin Walid"
-      >
-
-
-      <label>
-        Jenis Kelamin
-      </label>
-
-      <select id="newJk">
-
-        <option value="">
-          Pilih
-        </option>
-
-        <option value="L">
-          Laki-laki
-        </option>
-
-        <option value="P">
-          Perempuan
-        </option>
-
-      </select>
-
-
-      <label>
-        QR ID
-      </label>
-
-      <input
-        id="newQr"
-        placeholder="Otomatis dari NIS"
-      >
-
-
-      <button
-        onclick="saveStudent()"
-      >
-        💾 Simpan Siswa
-      </button>
-
-
-      <div id="studentMsg"></div>
-
-    </div>
-
-
-
-    <div class="card">
-
-      <h2>
-        Data Siswa
-      </h2>
-
-
-      <div class="table-wrap">
-
-        <table>
-
-          <thead>
-
-            <tr>
-
-              <th>
-                NIS
-              </th>
-
-              <th>
-                Nama
-              </th>
-
-              <th>
-                Kelas
-              </th>
-
-              <th>
-                QR
-              </th>
-
-              <th>
-                Aksi
-              </th>
-
-            </tr>
-
-          </thead>
-
-
-          <tbody
-            id="studentBody"
-          ></tbody>
-
-        </table>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </div>
 
 
 
-<!-- ======================================================
-     GURU
-====================================================== -->
+<!-- ================================================= -->
+<!-- REKAP -->
+<!-- ================================================= -->
 
 <div
-  id="tab-guru"
-  class="hidden"
->
+id="tab-rekap"
+class="hidden">
 
+<div class="card">
 
-  <div class="grid">
+<h2>📋 Rekap Absensi</h2>
 
+<div class="row">
 
-    <div class="card">
+<div>
 
-      <h2>
-        👩‍🏫 Tambah Guru / Tendik
-      </h2>
+<label>Tanggal</label>
 
+<input
+type="date"
+id="tanggal">
 
-      <p class="small">
+</div>
 
-        Data akan langsung disimpan
-        ke Google Spreadsheet.
 
-        <br>
+<div>
 
-        Karena database terpusat,
-        data dapat dibaca dari PC/HP lain.
+<label>Kelas</label>
 
-      </p>
+<select id="kelas">
 
+<option value="">
+Semua Kelas
+</option>
 
-      <label>
-        NIP / ID Pegawai
-      </label>
+</select>
 
-      <input
-        id="newGuruNip"
-        placeholder="Contoh: 198501012010011001"
-      >
+</div>
 
+</div>
 
-      <label>
-        Nama Lengkap
-      </label>
 
-      <input
-        id="newGuruNama"
-        placeholder="Nama guru/tendik"
-      >
+<button
+onclick="loadRekap()">
 
+Tampilkan
 
-      <label>
-        Jabatan
-      </label>
+</button>
 
-      <input
-        id="newGuruJabatan"
-        placeholder="Guru / TU / Kepala Sekolah"
-      >
 
+<div
+class="table-wrap"
+style="margin-top:15px">
 
-      <label>
-        Mata Pelajaran
-      </label>
+<table>
 
-      <input
-        id="newGuruMapel"
-        placeholder="Matematika"
-      >
+<thead>
 
+<tr>
 
-      <label>
-        QR ID
-      </label>
+<th>NIS</th>
+<th>Nama</th>
+<th>Kelas</th>
+<th>Jam</th>
+<th>Status</th>
 
-      <input
-        id="newGuruQr"
-        placeholder="Otomatis dari NIP"
-      >
+</tr>
 
+</thead>
 
-      <div
-        style="
-          display:flex;
-          gap:8px;
-          flex-wrap:wrap
-        "
-      >
+<tbody id="rekapBody"></tbody>
 
-        <button
-          onclick="saveGuru()"
-        >
-          💾 Simpan Guru
-        </button>
+</table>
 
+</div>
 
-        <button
-          class="alt"
-          onclick="clearGuruForm()"
-        >
-          Bersihkan
-        </button>
-
-      </div>
-
-
-      <div id="guruMsg"></div>
-
-    </div>
-
-
-
-    <div class="card">
-
-      <h2>
-        Data Guru & Tendik
-      </h2>
-
-
-      <div class="table-wrap">
-
-        <table>
-
-          <thead>
-
-            <tr>
-
-              <th>
-                NIP/ID
-              </th>
-
-              <th>
-                Nama
-              </th>
-
-              <th>
-                Jabatan
-              </th>
-
-              <th>
-                QR ID
-              </th>
-
-              <th>
-                Aksi
-              </th>
-
-            </tr>
-
-          </thead>
-
-
-          <tbody
-            id="guruBody"
-          ></tbody>
-
-        </table>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="card">
-
-    <h2>
-      🪪 QR Guru & Tendik
-    </h2>
-
-
-    <div
-      style="
-        display:flex;
-        gap:8px;
-        flex-wrap:wrap
-      "
-    >
-
-      <button
-        onclick="loadGuru()"
-      >
-        🔄 Refresh Data Guru
-      </button>
-
-
-      <button
-        class="warn"
-        onclick="window.print()"
-      >
-        🖨️ Cetak QR Guru
-      </button>
-
-    </div>
-
-
-    <div
-      id="guruQrInfo"
-      class="result"
-    ></div>
-
-
-    <div
-      id="guruQrGrid"
-      class="qr-grid"
-      style="margin-top:15px"
-    ></div>
-
-  </div>
+</div>
 
 </div>
 
 
 
-<!-- ======================================================
-     QR SISWA
-====================================================== -->
+<!-- ================================================= -->
+<!-- DATA SISWA -->
+<!-- ================================================= -->
 
 <div
-  id="tab-qr"
-  class="hidden"
->
+id="tab-siswa"
+class="hidden">
+
+<div class="grid">
 
 
-  <div
-    class="card no-print"
-  >
+<div class="card">
 
-    <h2>
-      🪪 Cetak QR Semua Siswa
-    </h2>
+<h2>➕ Tambah Siswa</h2>
 
+<label>NIS</label>
 
-    <div class="row">
-
-
-      <div>
-
-        <label>
-          Filter Kelas
-        </label>
-
-        <select id="qrKelas">
-
-          <option value="">
-            Semua Kelas
-          </option>
-
-        </select>
-
-      </div>
+<input
+id="newNis"
+placeholder="25001">
 
 
-      <div
-        style="
-          display:flex;
-          align-items:end;
-          gap:8px
-        "
-      >
+<label>NISN</label>
 
-        <button
-          onclick="generateQR()"
-        >
-          Buat QR
-        </button>
+<input
+id="newNisn"
+placeholder="Nomor NISN">
 
 
-        <button
-          class="warn"
-          onclick="window.print()"
-        >
-          🖨️ Cetak
-        </button>
+<label>Nama Lengkap</label>
 
-      </div>
-
-    </div>
+<input
+id="newNama"
+placeholder="Nama siswa">
 
 
-    <div
-      id="qrInfo"
-      class="result"
-    ></div>
+<label>Kelas</label>
 
-  </div>
-
+<input
+id="newKelas"
+placeholder="VII Khalid Bin Walid">
 
 
-  <div class="print-head">
+<label>Jenis Kelamin</label>
 
-    <h2>
-      SMPIT AL-HUSNA BEKASI
-    </h2>
+<select id="newJk">
 
-    <p>
-      KARTU QR ABSENSI SISWA
-      • Tahun Pelajaran 2026/2027
-    </p>
+<option value="">
+Pilih
+</option>
 
-  </div>
+<option value="L">
+Laki-laki
+</option>
+
+<option value="P">
+Perempuan
+</option>
+
+</select>
 
 
-  <div class="card">
+<label>QR ID</label>
 
-    <div
-      id="qrGrid"
-      class="qr-grid"
-    ></div>
+<input
+id="newQr"
+placeholder="Otomatis dari NIS">
 
-  </div>
+
+<button
+onclick="saveStudent()">
+
+💾 Simpan ke Spreadsheet
+
+</button>
+
+
+<div id="studentMsg"></div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>👨‍🎓 Data Siswa</h2>
+
+<div
+class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>NIS</th>
+<th>Nama</th>
+<th>Kelas</th>
+<th>QR</th>
+<th>Aksi</th>
+
+</tr>
+
+</thead>
+
+<tbody
+id="studentBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- DATA GURU -->
+<!-- ================================================= -->
+
+<div
+id="tab-guru"
+class="hidden">
+
+<div class="grid">
+
+
+<div class="card">
+
+<h2>➕ Tambah Guru / Tendik</h2>
+
+<p class="small">
+
+Data disimpan langsung ke Google Spreadsheet.
+
+Bukan localStorage.
+
+</p>
+
+
+<label>NIP / ID Pegawai</label>
+
+<input
+id="newGuruNip"
+placeholder="198501012010011001">
+
+
+<label>Nama Lengkap</label>
+
+<input
+id="newGuruNama"
+placeholder="Nama Guru">
+
+
+<label>Jabatan</label>
+
+<input
+id="newGuruJabatan"
+placeholder="Guru Matematika">
+
+
+<label>Mata Pelajaran</label>
+
+<input
+id="newGuruMapel"
+placeholder="Matematika">
+
+
+<label>QR ID</label>
+
+<input
+id="newGuruQr"
+placeholder="Otomatis dari NIP">
+
+
+<button
+onclick="saveGuru()">
+
+💾 Simpan Guru
+
+</button>
+
+
+<div id="guruMsg"></div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>👩‍🏫 Data Guru / Tendik</h2>
+
+<div
+class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>NIP</th>
+<th>Nama</th>
+<th>Jabatan</th>
+<th>QR ID</th>
+<th>Aksi</th>
+
+</tr>
+
+</thead>
+
+<tbody
+id="guruBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>🪪 QR Guru / Tendik</h2>
+
+<button
+onclick="generateGuruQR()">
+
+Buat QR Guru
+
+</button>
+
+<button
+class="warn"
+onclick="window.print()">
+
+🖨️ Cetak QR Guru
+
+</button>
+
+<div
+id="guruQrInfo"
+class="result">
+
+</div>
+
+<div
+id="guruQrGrid"
+class="qr-grid"
+style="margin-top:15px">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- QR SISWA -->
+<!-- ================================================= -->
+
+<div
+id="tab-qr"
+class="hidden">
+
+<div
+class="card no-print">
+
+<h2>🪪 Cetak QR Semua Siswa</h2>
+
+<div class="row">
+
+<div>
+
+<label>Filter Kelas</label>
+
+<select id="qrKelas">
+
+<option value="">
+Semua Kelas
+</option>
+
+</select>
+
+</div>
+
+
+<div
+style="display:flex;align-items:end;gap:8px">
+
+<button
+onclick="generateQR()">
+
+Buat QR
+
+</button>
+
+<button
+class="warn"
+onclick="window.print()">
+
+🖨️ Cetak
+
+</button>
+
+</div>
+
+</div>
+
+
+<div
+id="qrInfo"
+class="result">
+
+</div>
+
+</div>
+
+
+<div class="print-head">
+
+<h2>
+SMPIT AL-HUSNA BEKASI
+</h2>
+
+<p>
+KARTU QR ABSENSI SISWA
+</p>
+
+<p>
+Tahun Pelajaran 2026/2027
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div
+id="qrGrid"
+class="qr-grid">
+
+</div>
+
+</div>
 
 </div>
 
@@ -1772,9 +1314,10 @@ td{
 
 <script>
 
-/* =========================================================
-   KONFIGURASI API
-========================================================= */
+
+// ======================================================
+// KONFIGURASI API
+// ======================================================
 
 const API =
 'https://script.google.com/macros/s/AKfycbxRIeOUjX7z3R9tjosYm8oJQaVbH1g3FmzLBBz08pVqIGBV_CUtNl7sXlcsVe-BKRN4mA/exec';
@@ -1782,15 +1325,19 @@ const API =
 
 let scanner = null;
 
+let guruScanner = null;
+
 let allStudents = [];
 
 let allGuru = [];
 
+let guruMode = 'masuk';
 
 
-/* =========================================================
-   JSONP
-========================================================= */
+
+// ======================================================
+// JSONP
+// ======================================================
 
 function jsonp(params){
 
@@ -1807,9 +1354,7 @@ function jsonp(params){
 
 
       const script =
-        document.createElement(
-          'script'
-        );
+        document.createElement('script');
 
 
       const query =
@@ -1823,7 +1368,7 @@ function jsonp(params){
 
 
       window[cb] =
-        data => {
+        function(data){
 
           cleanup();
 
@@ -1833,7 +1378,7 @@ function jsonp(params){
 
 
       script.onerror =
-        () => {
+        function(){
 
           cleanup();
 
@@ -1852,17 +1397,16 @@ function jsonp(params){
         query.toString();
 
 
-      document.body
-        .appendChild(script);
+      document.body.appendChild(
+        script
+      );
 
 
       const timer =
         setTimeout(
-          () => {
+          function(){
 
-            if(
-              window[cb]
-            ){
+            if(window[cb]){
 
               cleanup();
 
@@ -1875,7 +1419,7 @@ function jsonp(params){
             }
 
           },
-          20000
+          15000
         );
 
 
@@ -1896,53 +1440,11 @@ function jsonp(params){
 
 
 
-/* =========================================================
-   ESCAPE
-========================================================= */
-
-function escapeHtml(s){
-
-  return String(
-    s ?? ''
-  ).replace(
-    /[&<>"']/g,
-    m => ({
-
-      '&':'&amp;',
-      '<':'&lt;',
-      '>':'&gt;',
-      '"':'&quot;',
-      "'":'&#039;'
-
-    }[m])
-  );
-
-}
-
-
-function escapeAttr(s){
-
-  return escapeHtml(s);
-
-}
-
-
-
-/* =========================================================
-   LOGIN
-========================================================= */
+// ======================================================
+// LOGIN
+// ======================================================
 
 async function loginUser(){
-
-  const u =
-    document.getElementById(
-      'username'
-    );
-
-  const p =
-    document.getElementById(
-      'password'
-    );
 
   const msg =
     document.getElementById(
@@ -1951,9 +1453,7 @@ async function loginUser(){
 
 
   msg.innerHTML =
-    '<div class="result">' +
-    'Memeriksa login...' +
-    '</div>';
+    '<div class="result">Memeriksa login...</div>';
 
 
   try{
@@ -1963,9 +1463,15 @@ async function loginUser(){
 
         action:'login',
 
-        username:u.value.trim(),
+        username:
+          document.getElementById(
+            'username'
+          ).value.trim(),
 
-        password:p.value
+        password:
+          document.getElementById(
+            'password'
+          ).value
 
       });
 
@@ -1990,19 +1496,15 @@ async function loginUser(){
 
     sessionStorage.setItem(
       'absenUsername',
-      u.value.trim()
+      r.username
     );
 
 
     sessionStorage.setItem(
       'absenPassword',
-      p.value
-    );
-
-
-    sessionStorage.setItem(
-      'absenRole',
-      r.role || ''
+      document.getElementById(
+        'password'
+      ).value
     );
 
 
@@ -2020,14 +1522,15 @@ async function loginUser(){
 
     setToday();
 
-    await loadStudents();
+    loadDashboard();
 
-    await loadGuru();
+    loadStudents();
 
-    await loadDashboard();
+    loadGuru();
 
+  }
 
-  }catch(e){
+  catch(e){
 
     msg.innerHTML =
       '<div class="result bad">' +
@@ -2040,13 +1543,11 @@ async function loginUser(){
 
 
 
-/* =========================================================
-   LOGOUT
-========================================================= */
+// ======================================================
+// LOGOUT
+// ======================================================
 
 function logout(){
-
-  stopScanner();
 
   sessionStorage.clear();
 
@@ -2056,22 +1557,22 @@ function logout(){
 
 
 
-/* =========================================================
-   TAB
-========================================================= */
+// ======================================================
+// TAB
+// ======================================================
 
-function showTab(
-  name,
-  btn
-){
+function showTab(name,btn){
 
   const tabs = [
+
     'scan',
+    'guruScan',
     'dashboard',
     'rekap',
     'siswa',
     'guru',
     'qr'
+
   ];
 
 
@@ -2082,6 +1583,7 @@ function showTab(
         document.getElementById(
           'tab-' + x
         );
+
 
       if(el){
 
@@ -2117,55 +1619,37 @@ function showTab(
   }
 
 
-  if(
-    name === 'dashboard'
-  ){
-
+  if(name === 'dashboard')
     loadDashboard();
 
-  }
 
-
-  if(
-    name === 'rekap'
-  ){
-
+  if(name === 'rekap')
     loadRekap();
 
-  }
+
+  if(name === 'siswa')
+    renderStudents();
 
 
-  if(
-    name === 'siswa'
-  ){
-
-    loadStudents();
-
-  }
-
-
-  if(
-    name === 'guru'
-  ){
+  if(name === 'guru'){
 
     loadGuru();
 
+    generateGuruQR();
+
   }
 
 
-  if(
-    name === 'qr'
-  ){
+  if(name === 'qr'){
 
-    if(
-      allStudents.length
-    ){
-
-      generateQR();
-
-    }else{
+    if(!allStudents.length){
 
       loadStudents();
+
+    }
+    else{
+
+      generateQR();
 
     }
 
@@ -2175,9 +1659,9 @@ function showTab(
 
 
 
-/* =========================================================
-   TANGGAL
-========================================================= */
+// ======================================================
+// TODAY
+// ======================================================
 
 function setToday(){
 
@@ -2185,55 +1669,31 @@ function setToday(){
     new Date();
 
 
-  const value =
+  const local =
     new Date(
       d.getTime() -
-      d.getTimezoneOffset() *
-      60000
-    )
-    .toISOString()
-    .slice(
-      0,
-      10
+      d.getTimezoneOffset()*60000
     );
 
 
   document
-    .getElementById(
-      'tanggal'
-    )
+    .getElementById('tanggal')
     .value =
-    value;
+      local
+        .toISOString()
+        .slice(0,10);
 
 }
 
 
 
-/* =========================================================
-   SCANNER
-========================================================= */
+// ======================================================
+// SCANNER SISWA
+// ======================================================
 
 async function startScanner(){
 
-  if(scanner){
-
-    return;
-
-  }
-
-
-  const resultBox =
-    document.getElementById(
-      'scanResult'
-    );
-
-
-  resultBox.className =
-    'result';
-
-
-  resultBox.textContent =
-    'Memulai kamera...';
+  if(scanner) return;
 
 
   scanner =
@@ -2242,72 +1702,12 @@ async function startScanner(){
     );
 
 
-  const success =
-    async text => {
-
-      text =
-        String(
-          text || ''
-        ).trim();
-
-
-      if(!text){
-
-        return;
-
-      }
-
-
-      await stopScanner();
-
-
-      /*
-       * DETEKSI QR GURU
-       */
-
-      if(
-        text
-          .toUpperCase()
-          .startsWith(
-            'SMPHUSNA-GURU-'
-          )
-      ){
-
-        await recordGuru(
-          text,
-          'Hadir',
-          'scanResult'
-        );
-
-
-      }else{
-
-        /*
-         * SISWA
-         */
-
-        await record(
-          text,
-          'Hadir',
-          'scanResult'
-        );
-
-      }
-
-    };
-
-
-  const error = () => {};
-
-
   try{
 
     await scanner.start(
 
       {
-        facingMode:{
-          exact:'environment'
-        }
+        facingMode:'environment'
       },
 
       {
@@ -2320,100 +1720,39 @@ async function startScanner(){
 
       },
 
-      success,
+      function(text){
 
-      error
+        stopScanner();
+
+        recordStudent(
+          text.trim()
+        );
+
+      },
+
+      function(error){}
 
     );
 
+  }
 
-    resultBox.textContent =
-      'Kamera aktif. Arahkan QR ke kotak scanner.';
+  catch(e){
 
-
-  }catch(e){
-
-    try{
-
-      await scanner.start(
-
-        {
-          facingMode:
-            'environment'
-        },
-
-        {
-          fps:10,
-
-          qrbox:{
-            width:250,
-            height:250
-          }
-
-        },
-
-        success,
-
-        error
-
+    const box =
+      document.getElementById(
+        'scanResult'
       );
 
 
-      resultBox.textContent =
-        'Kamera aktif. Arahkan QR ke scanner.';
+    box.className =
+      'result bad';
 
 
-    }catch(err){
-
-      resultBox.className =
-        'result bad';
-
-
-      resultBox.innerHTML =
-        '<b>Kamera tidak dapat digunakan.</b><br>' +
-
-        'Pastikan website dibuka melalui HTTPS dan izin kamera Chrome diizinkan.' +
-
-        '<br><small>' +
-
-        escapeHtml(
-          err.message ||
-          err
-        ) +
-
-        '</small>';
-
-
-      scanner = null;
-
-    }
-
-  }
-
-}
-
-
-
-/* =========================================================
-   STOP SCANNER
-========================================================= */
-
-async function stopScanner(){
-
-  if(scanner){
-
-    try{
-
-      await scanner.stop();
-
-    }catch(e){}
-
-
-    try{
-
-      scanner.clear();
-
-    }catch(e){}
+    box.innerHTML =
+      '<b>Kamera tidak dapat digunakan.</b><br>' +
+      'Pastikan situs HTTPS dan izin kamera Chrome sudah diizinkan.<br><small>' +
+      escapeHtml(e.message || e) +
+      '</small>';
 
 
     scanner = null;
@@ -2424,39 +1763,40 @@ async function stopScanner(){
 
 
 
-/* =========================================================
-   ABSENSI SISWA
-========================================================= */
+async function stopScanner(){
 
-async function record(
-  qr,
-  status='Hadir',
-  target='scanResult'
-){
+  if(scanner){
+
+    try{
+      await scanner.stop();
+    }
+    catch(e){}
+
+
+    try{
+      scanner.clear();
+    }
+    catch(e){}
+
+
+    scanner = null;
+
+  }
+
+}
+
+
+
+// ======================================================
+// ABSENSI SISWA
+// ======================================================
+
+async function recordStudent(qr){
 
   const box =
     document.getElementById(
-      target
+      'scanResult'
     );
-
-
-  qr =
-    String(
-      qr || ''
-    ).trim();
-
-
-  if(!qr){
-
-    box.className =
-      'result bad';
-
-    box.textContent =
-      'QR/NIS belum diisi.';
-
-    return;
-
-  }
 
 
   box.className =
@@ -2464,7 +1804,7 @@ async function record(
 
 
   box.textContent =
-    'Menyimpan absensi siswa...';
+    'Menyimpan absensi...';
 
 
   try{
@@ -2476,7 +1816,7 @@ async function record(
 
         qr:qr,
 
-        status:status
+        status:'Hadir'
 
       });
 
@@ -2489,160 +1829,6 @@ async function record(
 
       box.innerHTML =
         '<b>' +
-        escapeHtml(
-          r.message
-        ) +
-        '</b>' +
-
-        (
-          r.student
-            ?
-            '<br>' +
-            escapeHtml(
-              r.student.nama
-            ) +
-            ' • ' +
-            escapeHtml(
-              r.student.kelas
-            )
-            :
-            ''
-        );
-
-
-      return;
-
-    }
-
-
-    box.className =
-      'result ok';
-
-
-    box.innerHTML =
-
-      '<b>' +
-
-      escapeHtml(
-        r.message
-      ) +
-
-      '</b><br>' +
-
-      '👨‍🎓 ' +
-
-      escapeHtml(
-        r.student.nama
-      ) +
-
-      '<br>' +
-
-      'NIS: ' +
-
-      escapeHtml(
-        r.student.nis
-      ) +
-
-      '<br>' +
-
-      'Kelas: ' +
-
-      escapeHtml(
-        r.student.kelas
-      ) +
-
-      '<br>' +
-
-      'Jam: ' +
-
-      escapeHtml(
-        r.waktu
-      ) +
-
-      '<br>' +
-
-      (
-
-        r.terlambat
-
-          ?
-
-          '<span class="late">' +
-          '⚠ TERLAMBAT — melewati 07.00' +
-          '</span>'
-
-          :
-
-          '<span class="ontime">' +
-          '✓ TEPAT WAKTU — sebelum/tepat 07.00' +
-          '</span>'
-
-      );
-
-
-    await loadDashboard();
-
-
-  }catch(e){
-
-    box.className =
-      'result bad';
-
-    box.textContent =
-      e.message;
-
-  }
-
-}
-
-
-
-/* =========================================================
-   ABSENSI GURU
-========================================================= */
-
-async function recordGuru(
-  qr,
-  status='Hadir',
-  target='scanResult'
-){
-
-  const box =
-    document.getElementById(
-      target
-    );
-
-
-  box.className =
-    'result';
-
-
-  box.textContent =
-    'Mencari data Guru/Tendik...';
-
-
-  try{
-
-    const r =
-      await jsonp({
-
-        action:'guru_scan',
-
-        qr:qr,
-
-        status:status
-
-      });
-
-
-    if(!r.ok){
-
-      box.className =
-        'result bad';
-
-
-      box.innerHTML =
-        '<b>❌ ' +
         escapeHtml(
           r.message
         ) +
@@ -2660,39 +1846,21 @@ async function recordGuru(
 
     box.innerHTML =
 
-      '<b>✓ ' +
-
-      escapeHtml(
-        r.message
-      ) +
-
+      '<b>' +
+      escapeHtml(r.message) +
       '</b><br>' +
 
-      '👩‍🏫 ' +
-
       escapeHtml(
-        r.guru.nama
+        r.student.nama
       ) +
 
-      '<br>' +
-
-      'NIP/ID: ' +
+      ' • ' +
 
       escapeHtml(
-        r.guru.nip
+        r.student.kelas
       ) +
 
-      '<br>' +
-
-      'Jabatan: ' +
-
-      escapeHtml(
-        r.guru.jabatan
-      ) +
-
-      '<br>' +
-
-      'Jam: ' +
+      '<br>Jam: ' +
 
       escapeHtml(
         r.waktu
@@ -2701,28 +1869,19 @@ async function recordGuru(
       '<br>' +
 
       (
-
         r.terlambat
 
-          ?
+          ? '<span class="late">⚠ TERLAMBAT — melewati 07.00</span>'
 
-          '<span class="late">' +
-          '⚠ TERLAMBAT — melewati 07.00' +
-          '</span>'
-
-          :
-
-          '<span class="ontime">' +
-          '✓ TEPAT WAKTU — sebelum/tepat 07.00' +
-          '</span>'
-
+          : '<span class="ontime">✓ TEPAT WAKTU</span>'
       );
 
 
-    await loadDashboard();
+    loadDashboard();
 
+  }
 
-  }catch(e){
+  catch(e){
 
     box.className =
       'result bad';
@@ -2736,13 +1895,9 @@ async function recordGuru(
 
 
 
-/* =========================================================
-   MANUAL SCAN
-========================================================= */
-
 function manualScan(){
 
-  const value =
+  const qr =
     document
       .getElementById(
         'manualQr'
@@ -2751,27 +1906,109 @@ function manualScan(){
       .trim();
 
 
-  if(
-    value
-      .toUpperCase()
-      .startsWith(
-        'SMPHUSNA-GURU-'
+  if(!qr){
+
+    document
+      .getElementById(
+        'manualResult'
       )
-  ){
+      .innerHTML =
+        '<div class="result bad">Masukkan NIS atau QR ID.</div>';
 
-    recordGuru(
-      value,
-      'Hadir',
+    return;
+
+  }
+
+
+  recordManual(qr);
+
+}
+
+
+
+async function recordManual(qr){
+
+  const box =
+    document.getElementById(
       'manualResult'
     );
 
-  }else{
 
-    record(
-      value,
-      'Hadir',
-      'manualResult'
-    );
+  box.className =
+    'result';
+
+
+  box.textContent =
+    'Menyimpan...';
+
+
+  try{
+
+    const r =
+      await jsonp({
+
+        action:'scan',
+
+        qr:qr,
+
+        status:'Hadir'
+
+      });
+
+
+    box.className =
+      'result ' +
+      (
+        r.ok
+          ? 'ok'
+          : 'bad'
+      );
+
+
+    if(r.ok){
+
+      box.innerHTML =
+        '<b>' +
+        escapeHtml(
+          r.message
+        ) +
+        '</b><br>' +
+
+        escapeHtml(
+          r.student.nama
+        ) +
+
+        '<br>' +
+
+        escapeHtml(
+          r.waktu
+        );
+
+    }
+    else{
+
+      box.innerHTML =
+        '<b>' +
+        escapeHtml(
+          r.message
+        ) +
+        '</b>';
+
+    }
+
+
+    if(r.ok)
+      loadDashboard();
+
+  }
+
+  catch(e){
+
+    box.className =
+      'result bad';
+
+    box.textContent =
+      e.message;
 
   }
 
@@ -2779,9 +2016,372 @@ function manualScan(){
 
 
 
-/* =========================================================
-   LOAD DASHBOARD
-========================================================= */
+// ======================================================
+// GURU MODE
+// ======================================================
+
+function setGuruMasuk(){
+
+  guruMode =
+    'masuk';
+
+
+  const el =
+    document.getElementById(
+      'guruMode'
+    );
+
+
+  el.className =
+    'mode mode-masuk';
+
+
+  el.textContent =
+    'MODE MASUK — BATAS 07.00';
+
+}
+
+
+
+function setGuruPulang(){
+
+  guruMode =
+    'pulang';
+
+
+  const el =
+    document.getElementById(
+      'guruMode'
+    );
+
+
+  el.className =
+    'mode mode-pulang';
+
+
+  el.textContent =
+    'MODE PULANG — MULAI 15.45';
+
+}
+
+
+
+// ======================================================
+// GURU SCANNER
+// ======================================================
+
+async function startGuruScanner(){
+
+  if(guruScanner) return;
+
+
+  guruScanner =
+    new Html5Qrcode(
+      'readerGuru'
+    );
+
+
+  try{
+
+    await guruScanner.start(
+
+      {
+        facingMode:'environment'
+      },
+
+      {
+        fps:10,
+
+        qrbox:{
+          width:250,
+          height:250
+        }
+
+      },
+
+      function(text){
+
+        stopGuruScanner();
+
+        if(guruMode === 'pulang'){
+
+          recordGuruPulang(
+            text.trim()
+          );
+
+        }
+        else{
+
+          recordGuruMasuk(
+            text.trim()
+          );
+
+        }
+
+      },
+
+      function(error){}
+
+    );
+
+  }
+
+  catch(e){
+
+    const box =
+      document.getElementById(
+        'guruScanResult'
+      );
+
+
+    box.className =
+      'result bad';
+
+
+    box.innerHTML =
+      '<b>Kamera Guru tidak dapat digunakan.</b><br>' +
+      'Pastikan HTTPS dan izin kamera aktif.<br><small>' +
+      escapeHtml(
+        e.message || e
+      ) +
+      '</small>';
+
+
+    guruScanner = null;
+
+  }
+
+}
+
+
+
+async function stopGuruScanner(){
+
+  if(guruScanner){
+
+    try{
+      await guruScanner.stop();
+    }
+    catch(e){}
+
+
+    try{
+      guruScanner.clear();
+    }
+    catch(e){}
+
+
+    guruScanner = null;
+
+  }
+
+}
+
+
+
+// ======================================================
+// GURU MASUK
+// ======================================================
+
+async function recordGuruMasuk(qr){
+
+  const box =
+    document.getElementById(
+      'guruScanResult'
+    );
+
+
+  box.className =
+    'result';
+
+
+  box.textContent =
+    'Menyimpan absensi masuk guru...';
+
+
+  try{
+
+    const r =
+      await jsonp({
+
+        action:'guru_scan',
+
+        qr:qr
+
+      });
+
+
+    if(!r.ok){
+
+      box.className =
+        'result bad';
+
+
+      box.innerHTML =
+        '<b>' +
+        escapeHtml(
+          r.message
+        ) +
+        '</b>';
+
+
+      return;
+
+    }
+
+
+    box.className =
+      'result ok';
+
+
+    box.innerHTML =
+
+      '<b>' +
+      escapeHtml(
+        r.message
+      ) +
+      '</b><br>' +
+
+      escapeHtml(
+        r.guru.nama
+      ) +
+
+      '<br>' +
+
+      escapeHtml(
+        r.guru.jabatan
+      ) +
+
+      '<br>Jam: ' +
+
+      escapeHtml(
+        r.waktu
+      ) +
+
+      '<br>' +
+
+      (
+        r.terlambat
+
+          ? '<span class="late">⚠ TERLAMBAT</span>'
+
+          : '<span class="ontime">✓ TEPAT WAKTU</span>'
+      );
+
+  }
+
+  catch(e){
+
+    box.className =
+      'result bad';
+
+    box.textContent =
+      e.message;
+
+  }
+
+}
+
+
+
+// ======================================================
+// GURU PULANG
+// ======================================================
+
+async function recordGuruPulang(qr){
+
+  const box =
+    document.getElementById(
+      'guruScanResult'
+    );
+
+
+  box.className =
+    'result';
+
+
+  box.textContent =
+    'Menyimpan absensi pulang...';
+
+
+  try{
+
+    const r =
+      await jsonp({
+
+        action:'guru_pulang',
+
+        qr:qr
+
+      });
+
+
+    if(!r.ok){
+
+      box.className =
+        'result bad';
+
+
+      box.innerHTML =
+        '<b>' +
+        escapeHtml(
+          r.message
+        ) +
+        '</b>';
+
+
+      return;
+
+    }
+
+
+    box.className =
+      'result ok';
+
+
+    box.innerHTML =
+
+      '<b>✓ ABSENSI PULANG BERHASIL</b><br>' +
+
+      escapeHtml(
+        r.guru.nama
+      ) +
+
+      '<br>' +
+
+      escapeHtml(
+        r.guru.jabatan
+      ) +
+
+      '<br>Jam pulang: ' +
+
+      escapeHtml(
+        r.waktu
+      ) +
+
+      '<br>' +
+
+      '<span class="ontime">PULANG</span>';
+
+  }
+
+  catch(e){
+
+    box.className =
+      'result bad';
+
+    box.textContent =
+      e.message;
+
+  }
+
+}
+
+
+
+// ======================================================
+// DASHBOARD
+// ======================================================
 
 async function loadDashboard(){
 
@@ -2789,15 +2389,13 @@ async function loadDashboard(){
 
     const r =
       await jsonp({
+
         action:'dashboard'
+
       });
 
 
-    if(!r.ok){
-
-      return;
-
-    }
+    if(!r.ok) return;
 
 
     document
@@ -2805,7 +2403,7 @@ async function loadDashboard(){
         'total'
       )
       .textContent =
-      r.total;
+        r.total;
 
 
     document
@@ -2813,7 +2411,7 @@ async function loadDashboard(){
         'hadir'
       )
       .textContent =
-      r.counts.Hadir;
+        r.counts.Hadir;
 
 
     document
@@ -2821,66 +2419,30 @@ async function loadDashboard(){
         'belum'
       )
       .textContent =
-      r.belum;
+        r.belum;
 
 
     document
       .getElementById(
-        'terlambat'
+        'izin'
       )
       .textContent =
-      r.terlambat;
 
-
-    const g =
-      r.guru || {};
-
-
-    document
-      .getElementById(
-        'guruTotal'
-      )
-      .textContent =
-      g.total || 0;
-
-
-    document
-      .getElementById(
-        'guruHadir'
-      )
-      .textContent =
-      g.sudah || 0;
-
-
-    document
-      .getElementById(
-        'guruBelum'
-      )
-      .textContent =
-      g.belum || 0;
-
-
-    document
-      .getElementById(
-        'guruTerlambat'
-      )
-      .textContent =
-      g.terlambat || 0;
-
-
-  }catch(e){
-
-    console.log(e);
+        r.counts.Izin +
+        r.counts.Sakit +
+        r.counts.Alpa;
 
   }
+
+  catch(e){}
 
 }
 
 
 
-/* =========================================================
-   LOAD SISWA
-========================================================= */
+// ======================================================
+// LOAD SISWA
+// ======================================================
 
 async function loadStudents(){
 
@@ -2888,21 +2450,23 @@ async function loadStudents(){
 
     const r =
       await jsonp({
+
         action:'all_siswa'
+
       });
 
 
-    if(!r.ok){
+    if(r.ok){
 
-      throw new Error(
-        r.message
-      );
+      allStudents =
+        r.data || [];
 
     }
+    else{
 
+      allStudents = [];
 
-    allStudents =
-      r.data || [];
+    }
 
 
     fillClassSelects();
@@ -2911,13 +2475,15 @@ async function loadStudents(){
 
     generateQR();
 
+  }
 
-  }catch(e){
+  catch(e){
 
-    console.log(
-      'Gagal load siswa:',
-      e
-    );
+    allStudents = [];
+
+    fillClassSelects();
+
+    renderStudents();
 
   }
 
@@ -2925,13 +2491,14 @@ async function loadStudents(){
 
 
 
-/* =========================================================
-   CLASS SELECT
-========================================================= */
+// ======================================================
+// CLASS SELECT
+// ======================================================
 
 function fillClassSelects(){
 
   const classes =
+
     [
       ...new Set(
         allStudents
@@ -2945,6 +2512,7 @@ function fillClassSelects(){
 
 
   const html =
+
     '<option value="">Semua Kelas</option>' +
 
     classes
@@ -2964,7 +2532,7 @@ function fillClassSelects(){
       'kelas'
     )
     .innerHTML =
-    html;
+      html;
 
 
   document
@@ -2972,95 +2540,23 @@ function fillClassSelects(){
       'qrKelas'
     )
     .innerHTML =
-    html;
+      html;
 
 }
 
 
 
-/* =========================================================
-   RENDER SISWA
-========================================================= */
-
-function renderStudents(){
-
-  const body =
-    document.getElementById(
-      'studentBody'
-    );
-
-
-  if(
-    !allStudents.length
-  ){
-
-    body.innerHTML =
-      '<tr>' +
-
-      '<td colspan="5">' +
-
-      'Belum ada data siswa.' +
-
-      '</td>' +
-
-      '</tr>';
-
-    return;
-
-  }
-
-
-  body.innerHTML =
-    allStudents
-      .map(s => {
-
-        return `
-
-        <tr>
-
-          <td>
-            ${escapeHtml(s.nis)}
-          </td>
-
-          <td>
-            ${escapeHtml(s.nama)}
-          </td>
-
-          <td>
-            ${escapeHtml(s.kelas)}
-          </td>
-
-          <td>
-            ${escapeHtml(s.qr)}
-          </td>
-
-          <td>
-
-            <button
-              class="danger"
-              onclick="deleteStudentRemote('${escapeAttr(s.nis)}')"
-            >
-              Hapus
-            </button>
-
-          </td>
-
-        </tr>
-
-        `;
-
-      })
-      .join('');
-
-}
-
-
-
-/* =========================================================
-   SAVE SISWA
-========================================================= */
+// ======================================================
+// SIMPAN SISWA
+// ======================================================
 
 async function saveStudent(){
+
+  const msg =
+    document.getElementById(
+      'studentMsg'
+    );
+
 
   const nis =
     document
@@ -3115,28 +2611,18 @@ async function saveStudent(){
       .trim();
 
 
-  const msg =
-    document.getElementById(
-      'studentMsg'
-    );
+  if(!nis || !nama || !kelas){
 
+    msg.innerHTML =
+      '<div class="result bad">NIS, Nama dan Kelas wajib diisi.</div>';
 
-  const username =
-    sessionStorage.getItem(
-      'absenUsername'
-    );
+    return;
 
-
-  const password =
-    sessionStorage.getItem(
-      'absenPassword'
-    );
+  }
 
 
   msg.innerHTML =
-    '<div class="result">' +
-    'Menyimpan siswa...' +
-    '</div>';
+    '<div class="result">Menyimpan...</div>';
 
 
   try{
@@ -3158,9 +2644,15 @@ async function saveStudent(){
 
         qr,
 
-        username,
+        username:
+          sessionStorage.getItem(
+            'absenUsername'
+          ),
 
-        password
+        password:
+          sessionStorage.getItem(
+            'absenPassword'
+          )
 
       });
 
@@ -3181,21 +2673,55 @@ async function saveStudent(){
 
     msg.innerHTML =
       '<div class="result ok">' +
-      '✓ Siswa berhasil disimpan ke Google Spreadsheet.' +
-      '<br>QR ID: <b>' +
+      '<b>Siswa berhasil disimpan.</b><br>' +
+      'QR ID: ' +
       escapeHtml(
         r.data.qr
       ) +
-      '</b>' +
       '</div>';
 
 
-    clearStudentForm();
+    document
+      .getElementById(
+        'newNis'
+      ).value = '';
 
-    await loadStudents();
+
+    document
+      .getElementById(
+        'newNisn'
+      ).value = '';
 
 
-  }catch(e){
+    document
+      .getElementById(
+        'newNama'
+      ).value = '';
+
+
+    document
+      .getElementById(
+        'newKelas'
+      ).value = '';
+
+
+    document
+      .getElementById(
+        'newJk'
+      ).value = '';
+
+
+    document
+      .getElementById(
+        'newQr'
+      ).value = '';
+
+
+    loadStudents();
+
+  }
+
+  catch(e){
 
     msg.innerHTML =
       '<div class="result bad">' +
@@ -3210,70 +2736,83 @@ async function saveStudent(){
 
 
 
-/* =========================================================
-   CLEAR SISWA
-========================================================= */
+// ======================================================
+// RENDER SISWA
+// ======================================================
 
-function clearStudentForm(){
+function renderStudents(){
 
-  document
-    .getElementById(
-      'newNis'
-    ).value='';
-
-
-  document
-    .getElementById(
-      'newNisn'
-    ).value='';
+  const body =
+    document.getElementById(
+      'studentBody'
+    );
 
 
-  document
-    .getElementById(
-      'newNama'
-    ).value='';
+  if(!allStudents.length){
+
+    body.innerHTML =
+      '<tr><td colspan="5">Belum ada data siswa.</td></tr>';
+
+    return;
+
+  }
 
 
-  document
-    .getElementById(
-      'newKelas'
-    ).value='';
+  body.innerHTML =
 
+    allStudents
+      .map(
+        s =>
 
-  document
-    .getElementById(
-      'newJk'
-    ).value='';
+          '<tr>' +
 
+          '<td>' +
+          escapeHtml(s.nis) +
+          '</td>' +
 
-  document
-    .getElementById(
-      'newQr'
-    ).value='';
+          '<td>' +
+          escapeHtml(s.nama) +
+          '</td>' +
+
+          '<td>' +
+          escapeHtml(s.kelas) +
+          '</td>' +
+
+          '<td>' +
+          escapeHtml(s.qr) +
+          '</td>' +
+
+          '<td>' +
+
+          '<button class="danger" onclick="deleteStudent(\'' +
+          escapeAttr(s.nis) +
+          '\')">' +
+
+          'Hapus' +
+
+          '</button>' +
+
+          '</td>' +
+
+          '</tr>'
+      )
+      .join('');
 
 }
 
 
 
-/* =========================================================
-   DELETE SISWA
-========================================================= */
+// ======================================================
+// DELETE SISWA
+// ======================================================
 
-async function deleteStudentRemote(
-  nis
-){
+async function deleteStudent(nis){
 
   if(
     !confirm(
-      'Hapus siswa dengan NIS ' +
-      nis +
-      '?'
+      'Hapus siswa ini dari Google Spreadsheet?'
     )
-  ){
-
-    return;
-
-  }
+  ) return;
 
 
   try{
@@ -3298,26 +2837,17 @@ async function deleteStudentRemote(
       });
 
 
-    if(!r.ok){
-
-      alert(
-        r.message
-      );
-
-      return;
-
-    }
-
-
     alert(
-      'Siswa berhasil dihapus.'
+      r.message
     );
 
 
-    await loadStudents();
+    if(r.ok)
+      loadStudents();
 
+  }
 
-  }catch(e){
+  catch(e){
 
     alert(
       e.message
@@ -3329,9 +2859,149 @@ async function deleteStudentRemote(
 
 
 
-/* =========================================================
-   LOAD GURU
-========================================================= */
+// ======================================================
+// QR SISWA
+// ======================================================
+
+function generateQR(){
+
+  const filter =
+    document
+      .getElementById(
+        'qrKelas'
+      )
+      .value;
+
+
+  const list =
+    allStudents.filter(
+      s =>
+        !filter ||
+        s.kelas === filter
+    );
+
+
+  const grid =
+    document.getElementById(
+      'qrGrid'
+    );
+
+
+  grid.innerHTML = '';
+
+
+  list.forEach(
+    s => {
+
+      const card =
+        document.createElement(
+          'div'
+        );
+
+
+      card.className =
+        'qr-card';
+
+
+      const box =
+        document.createElement(
+          'div'
+        );
+
+
+      box.className =
+        'qr-box';
+
+
+      card.innerHTML =
+
+        '<div class="qr-name">' +
+        escapeHtml(
+          s.nama
+        ) +
+        '</div>' +
+
+        '<div class="qr-meta">' +
+        'NIS: ' +
+        escapeHtml(
+          s.nis
+        ) +
+        ' • Kelas: ' +
+        escapeHtml(
+          s.kelas
+        ) +
+        '</div>';
+
+
+      card.appendChild(
+        box
+      );
+
+
+      card.insertAdjacentHTML(
+
+        'beforeend',
+
+        '<div class="qr-id">' +
+        escapeHtml(
+          s.qr
+        ) +
+        '</div>'
+
+      );
+
+
+      grid.appendChild(
+        card
+      );
+
+
+      new QRCode(
+
+        box,
+
+        {
+
+          text:s.qr,
+
+          width:180,
+
+          height:180,
+
+          correctLevel:
+            QRCode.CorrectLevel.M
+
+        }
+
+      );
+
+    }
+  );
+
+
+  document
+    .getElementById(
+      'qrInfo'
+    )
+    .className =
+      'result ok';
+
+
+  document
+    .getElementById(
+      'qrInfo'
+    )
+    .textContent =
+      list.length +
+      ' QR siswa berhasil dibuat.';
+
+}
+
+
+
+// ======================================================
+// LOAD GURU
+// ======================================================
 
 async function loadGuru(){
 
@@ -3345,45 +3015,30 @@ async function loadGuru(){
       });
 
 
-    if(!r.ok){
+    if(r.ok){
 
-      throw new Error(
-        r.message
-      );
+      allGuru =
+        r.data || [];
 
     }
+    else{
 
+      allGuru = [];
 
-    allGuru =
-      r.data || [];
+    }
 
 
     renderGuru();
 
     generateGuruQR();
 
+  }
 
-  }catch(e){
+  catch(e){
 
-    document
-      .getElementById(
-        'guruBody'
-      )
-      .innerHTML =
+    allGuru = [];
 
-      '<tr>' +
-
-      '<td colspan="5">' +
-
-      'Gagal mengambil data Guru: ' +
-
-      escapeHtml(
-        e.message
-      ) +
-
-      '</td>' +
-
-      '</tr>';
+    renderGuru();
 
   }
 
@@ -3391,89 +3046,17 @@ async function loadGuru(){
 
 
 
-/* =========================================================
-   RENDER GURU
-========================================================= */
-
-function renderGuru(){
-
-  const body =
-    document.getElementById(
-      'guruBody'
-    );
-
-
-  if(
-    !allGuru.length
-  ){
-
-    body.innerHTML =
-      '<tr>' +
-
-      '<td colspan="5">' +
-
-      'Belum ada data Guru/Tendik.' +
-
-      '</td>' +
-
-      '</tr>';
-
-    return;
-
-  }
-
-
-  body.innerHTML =
-    allGuru
-      .map(g => {
-
-        return `
-
-        <tr>
-
-          <td>
-            ${escapeHtml(g.nip)}
-          </td>
-
-          <td>
-            ${escapeHtml(g.nama)}
-          </td>
-
-          <td>
-            ${escapeHtml(g.jabatan)}
-          </td>
-
-          <td>
-            ${escapeHtml(g.qr)}
-          </td>
-
-          <td>
-
-            <button
-              class="danger"
-              onclick="deleteGuruRemote('${escapeAttr(g.nip)}')"
-            >
-              Hapus
-            </button>
-
-          </td>
-
-        </tr>
-
-        `;
-
-      })
-      .join('');
-
-}
-
-
-
-/* =========================================================
-   SAVE GURU
-========================================================= */
+// ======================================================
+// SIMPAN GURU
+// ======================================================
 
 async function saveGuru(){
+
+  const msg =
+    document.getElementById(
+      'guruMsg'
+    );
+
 
   const nip =
     document
@@ -3520,45 +3103,18 @@ async function saveGuru(){
       .trim();
 
 
-  const msg =
-    document
-      .getElementById(
-        'guruMsg'
-      );
-
-
-  if(
-    !nip ||
-    !nama ||
-    !jabatan
-  ){
+  if(!nip || !nama || !jabatan){
 
     msg.innerHTML =
-      '<div class="result bad">' +
-      'NIP/ID, nama dan jabatan wajib diisi.' +
-      '</div>';
+      '<div class="result bad">NIP/ID, Nama dan Jabatan wajib diisi.</div>';
 
     return;
 
   }
 
 
-  const username =
-    sessionStorage.getItem(
-      'absenUsername'
-    );
-
-
-  const password =
-    sessionStorage.getItem(
-      'absenPassword'
-    );
-
-
   msg.innerHTML =
-    '<div class="result">' +
-    'Menyimpan Guru ke Google Spreadsheet...' +
-    '</div>';
+    '<div class="result">Menyimpan guru ke Google Spreadsheet...</div>';
 
 
   try{
@@ -3578,9 +3134,15 @@ async function saveGuru(){
 
         qr,
 
-        username,
+        username:
+          sessionStorage.getItem(
+            'absenUsername'
+          ),
 
-        password
+        password:
+          sessionStorage.getItem(
+            'absenPassword'
+          )
 
       });
 
@@ -3602,31 +3164,52 @@ async function saveGuru(){
     msg.innerHTML =
       '<div class="result ok">' +
 
-      '<b>✓ Guru berhasil disimpan.</b>' +
+      '<b>Guru berhasil disimpan ke Google Spreadsheet.</b><br>' +
 
-      '<br>' +
-
-      'Data sekarang tersimpan di Google Spreadsheet.' +
-
-      '<br>' +
-
-      'QR ID: <b>' +
+      'QR ID: ' +
 
       escapeHtml(
         r.data.qr
       ) +
 
-      '</b>' +
-
       '</div>';
 
 
-    clearGuruForm();
+    document
+      .getElementById(
+        'newGuruNip'
+      ).value = '';
 
-    await loadGuru();
+
+    document
+      .getElementById(
+        'newGuruNama'
+      ).value = '';
 
 
-  }catch(e){
+    document
+      .getElementById(
+        'newGuruJabatan'
+      ).value = '';
+
+
+    document
+      .getElementById(
+        'newGuruMapel'
+      ).value = '';
+
+
+    document
+      .getElementById(
+        'newGuruQr'
+      ).value = '';
+
+
+    loadGuru();
+
+  }
+
+  catch(e){
 
     msg.innerHTML =
       '<div class="result bad">' +
@@ -3641,69 +3224,83 @@ async function saveGuru(){
 
 
 
-/* =========================================================
-   CLEAR GURU
-========================================================= */
+// ======================================================
+// RENDER GURU
+// ======================================================
 
-function clearGuruForm(){
+function renderGuru(){
 
-  document
-    .getElementById(
-      'newGuruNip'
-    )
-    .value='';
-
-
-  document
-    .getElementById(
-      'newGuruNama'
-    )
-    .value='';
+  const body =
+    document.getElementById(
+      'guruBody'
+    );
 
 
-  document
-    .getElementById(
-      'newGuruJabatan'
-    )
-    .value='';
+  if(!allGuru.length){
+
+    body.innerHTML =
+      '<tr><td colspan="5">Belum ada data guru/tendik.</td></tr>';
+
+    return;
+
+  }
 
 
-  document
-    .getElementById(
-      'newGuruMapel'
-    )
-    .value='';
+  body.innerHTML =
 
+    allGuru
+      .map(
+        g =>
 
-  document
-    .getElementById(
-      'newGuruQr'
-    )
-    .value='';
+          '<tr>' +
+
+          '<td>' +
+          escapeHtml(g.nip) +
+          '</td>' +
+
+          '<td>' +
+          escapeHtml(g.nama) +
+          '</td>' +
+
+          '<td>' +
+          escapeHtml(g.jabatan) +
+          '</td>' +
+
+          '<td>' +
+          escapeHtml(g.qr) +
+          '</td>' +
+
+          '<td>' +
+
+          '<button class="danger" onclick="deleteGuru(\'' +
+          escapeAttr(g.nip) +
+          '\')">' +
+
+          'Hapus' +
+
+          '</button>' +
+
+          '</td>' +
+
+          '</tr>'
+      )
+      .join('');
 
 }
 
 
 
-/* =========================================================
-   DELETE GURU
-========================================================= */
+// ======================================================
+// DELETE GURU
+// ======================================================
 
-async function deleteGuruRemote(
-  nip
-){
+async function deleteGuru(nip){
 
   if(
     !confirm(
-      'Hapus Guru/Tendik dengan NIP/ID ' +
-      nip +
-      '?'
+      'Hapus guru ini dari Google Spreadsheet?'
     )
-  ){
-
-    return;
-
-  }
+  ) return;
 
 
   try{
@@ -3728,26 +3325,17 @@ async function deleteGuruRemote(
       });
 
 
-    if(!r.ok){
-
-      alert(
-        r.message
-      );
-
-      return;
-
-    }
-
-
     alert(
-      'Guru/Tendik berhasil dihapus dari Google Spreadsheet.'
+      r.message
     );
 
 
-    await loadGuru();
+    if(r.ok)
+      loadGuru();
 
+  }
 
-  }catch(e){
+  catch(e){
 
     alert(
       e.message
@@ -3759,153 +3347,9 @@ async function deleteGuruRemote(
 
 
 
-/* =========================================================
-   GENERATE QR SISWA
-========================================================= */
-
-function generateQR(){
-
-  const grid =
-    document.getElementById(
-      'qrGrid'
-    );
-
-
-  const info =
-    document.getElementById(
-      'qrInfo'
-    );
-
-
-  const filter =
-    document
-      .getElementById(
-        'qrKelas'
-      )
-      .value;
-
-
-  const list =
-    allStudents.filter(
-      s =>
-        !filter ||
-        s.kelas === filter
-    );
-
-
-  grid.innerHTML='';
-
-
-  list.forEach(
-    s => {
-
-      const card =
-        document.createElement(
-          'div'
-        );
-
-
-      card.className =
-        'qr-card';
-
-
-      const box =
-        document.createElement(
-          'div'
-        );
-
-
-      box.className =
-        'qr-box';
-
-
-      card.innerHTML =
-
-        '<div class="qr-name">' +
-
-        escapeHtml(
-          s.nama
-        ) +
-
-        '</div>' +
-
-        '<div class="qr-meta">' +
-
-        'NIS: ' +
-
-        escapeHtml(
-          s.nis
-        ) +
-
-        ' • Kelas: ' +
-
-        escapeHtml(
-          s.kelas
-        ) +
-
-        '</div>';
-
-
-      card.appendChild(
-        box
-      );
-
-
-      card.insertAdjacentHTML(
-
-        'beforeend',
-
-        '<div class="qr-id">' +
-
-        escapeHtml(
-          s.qr
-        ) +
-
-        '</div>'
-
-      );
-
-
-      grid.appendChild(
-        card
-      );
-
-
-      new QRCode(
-        box,
-        {
-
-          text:s.qr,
-
-          width:180,
-
-          height:180,
-
-          correctLevel:
-            QRCode.CorrectLevel.M
-
-        }
-      );
-
-    }
-  );
-
-
-  info.className =
-    'result ok';
-
-
-  info.textContent =
-    list.length +
-    ' QR siswa berhasil dibuat.';
-
-}
-
-
-
-/* =========================================================
-   GENERATE QR GURU
-========================================================= */
+// ======================================================
+// GENERATE QR GURU
+// ======================================================
 
 function generateGuruQR(){
 
@@ -3915,13 +3359,10 @@ function generateGuruQR(){
     );
 
 
-  const info =
-    document.getElementById(
-      'guruQrInfo'
-    );
+  if(!grid) return;
 
 
-  grid.innerHTML='';
+  grid.innerHTML = '';
 
 
   allGuru.forEach(
@@ -3950,25 +3391,19 @@ function generateGuruQR(){
       card.innerHTML =
 
         '<div class="qr-name">' +
-
         escapeHtml(
           g.nama
         ) +
-
         '</div>' +
 
         '<div class="qr-meta">' +
-
         escapeHtml(
           g.jabatan
         ) +
-
         ' • ' +
-
         escapeHtml(
           g.nip
         ) +
-
         '</div>';
 
 
@@ -3982,11 +3417,9 @@ function generateGuruQR(){
         'beforeend',
 
         '<div class="qr-id">' +
-
         escapeHtml(
           g.qr
         ) +
-
         '</div>'
 
       );
@@ -3998,7 +3431,9 @@ function generateGuruQR(){
 
 
       new QRCode(
+
         box,
+
         {
 
           text:g.qr,
@@ -4011,27 +3446,38 @@ function generateGuruQR(){
             QRCode.CorrectLevel.M
 
         }
+
       );
 
     }
   );
 
 
-  info.className =
-    'result ok';
+  const info =
+    document.getElementById(
+      'guruQrInfo'
+    );
 
 
-  info.textContent =
-    allGuru.length +
-    ' QR Guru/Tendik dibuat dari Google Spreadsheet.';
+  if(info){
+
+    info.className =
+      'result ok';
+
+
+    info.textContent =
+      allGuru.length +
+      ' QR Guru/Tendik berhasil dibuat.';
+
+  }
 
 }
 
 
 
-/* =========================================================
-   REKAP
-========================================================= */
+// ======================================================
+// REKAP
+// ======================================================
 
 async function loadRekap(){
 
@@ -4042,15 +3488,7 @@ async function loadRekap(){
 
 
   body.innerHTML =
-    '<tr>' +
-
-    '<td colspan="6">' +
-
-    'Memuat...' +
-
-    '</td>' +
-
-    '</tr>';
+    '<tr><td colspan="5">Memuat...</td></tr>';
 
 
   try{
@@ -4079,28 +3517,12 @@ async function loadRekap(){
 
     if(!r.ok){
 
-      throw new Error(
-        r.message
-      );
-
-    }
-
-
-    if(
-      !r.data ||
-      !r.data.length
-    ){
-
       body.innerHTML =
-        '<tr>' +
-
-        '<td colspan="6">' +
-
-        'Tidak ada data siswa.' +
-
-        '</td>' +
-
-        '</tr>';
+        '<tr><td colspan="5">' +
+        escapeHtml(
+          r.message
+        ) +
+        '</td></tr>';
 
       return;
 
@@ -4108,57 +3530,61 @@ async function loadRekap(){
 
 
     body.innerHTML =
-      r.data
+
+      (r.data || [])
         .map(
-          x => `
+          x =>
 
-          <tr>
+            '<tr>' +
 
-            <td>
-              ${escapeHtml(x.nis)}
-            </td>
+            '<td>' +
+            escapeHtml(x.nis) +
+            '</td>' +
 
-            <td>
-              ${escapeHtml(x.nama)}
-            </td>
+            '<td>' +
+            escapeHtml(x.nama) +
+            '</td>' +
 
-            <td>
-              ${escapeHtml(x.kelas)}
-            </td>
+            '<td>' +
+            escapeHtml(x.kelas) +
+            '</td>' +
 
-            <td>
-              ${escapeHtml(x.jam)}
-            </td>
+            '<td>' +
+            escapeHtml(x.jam) +
+            '</td>' +
 
-            <td>
-              ${escapeHtml(x.status)}
-            </td>
+            '<td>' +
 
-            <td>
-              ${escapeHtml(x.keterangan)}
-            </td>
+            escapeHtml(x.status) +
 
-          </tr>
+            (
 
-          `
+              x.keterangan ===
+              'TERLAMBAT'
+
+                ? ' <b style="color:#9a5200">— TERLAMBAT</b>'
+
+                : ''
+
+            ) +
+
+            '</td>' +
+
+            '</tr>'
+
         )
         .join('');
 
+  }
 
-  }catch(e){
+  catch(e){
 
     body.innerHTML =
-      '<tr>' +
-
-      '<td colspan="6">' +
-
+      '<tr><td colspan="5">' +
       escapeHtml(
         e.message
       ) +
-
-      '</td>' +
-
-      '</tr>';
+      '</td></tr>';
 
   }
 
@@ -4166,25 +3592,56 @@ async function loadRekap(){
 
 
 
-/* =========================================================
-   INIT
-========================================================= */
+// ======================================================
+// ESCAPE
+// ======================================================
+
+function escapeHtml(s){
+
+  return String(
+    s ?? ''
+  )
+  .replace(
+    /[&<>"']/g,
+    m => ({
+
+      '&':'&amp;',
+      '<':'&lt;',
+      '>':'&gt;',
+      '"':'&quot;',
+      "'":'&#039;'
+
+    }[m])
+  );
+
+}
+
+
+function escapeAttr(s){
+
+  return escapeHtml(
+    s
+  );
+
+}
+
+
+
+// ======================================================
+// START APP
+// ======================================================
 
 document.addEventListener(
   'DOMContentLoaded',
-  async () => {
+  function(){
 
     setToday();
 
 
-    const logged =
+    if(
       sessionStorage.getItem(
         'absenLogin'
-      );
-
-
-    if(
-      logged === '1'
+      ) === '1'
     ){
 
       document
@@ -4203,11 +3660,11 @@ document.addEventListener(
         .remove('hidden');
 
 
-      await loadStudents();
+      loadDashboard();
 
-      await loadGuru();
+      loadStudents();
 
-      await loadDashboard();
+      loadGuru();
 
     }
 
@@ -4217,4 +3674,5 @@ document.addEventListener(
 </script>
 
 </body>
+
 </html>
